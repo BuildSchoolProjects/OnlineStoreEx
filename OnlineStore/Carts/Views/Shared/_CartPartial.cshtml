@@ -2,18 +2,18 @@
     //取得當前購物車所有內容    
     var currentCart = Carts.Models.Cart.Operation.GetCurrentCart();  
 }
-<a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown">
+<a id="CartDropDown" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">
     @String.Format( "共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count )
     <span class="caret"></span>
 </a>
-<ul class="dropdown-menu Cart" role="menu" aria-labelledby="CartDropDown">
+<ul class="dropdown-menu Cart"  role="menu" aria-labelledby="CartDropDown">
     @if (currentCart.Count > 0)
     {
         foreach (var cartitem in currentCart)
         {
             //依序輸出 : <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
             <li class="col-xs-12">
-                <span class="col-xs-9">@cartitem.Name @cartitem.Price.ToString("0.0") 元 X @cartitem.Quantity </span>
+                <span class="col-xs-9" >@cartitem.Name @cartitem.Price.ToString("0.0") 元 X @cartitem.Quantity </span>
                 <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@cartitem.Id')">
                     X
                 </span>

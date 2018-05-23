@@ -240,6 +240,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\jeans.jpg" />
+    <Content Include="image\jeans1.jpg" />
+    <Content Include="image\jeans2.jpg" />
+    <Content Include="image\jeans3.jpg" />
+    <Content Include="image\jeans4.jpg" />
     <Content Include="image\logo.jpg" />
     <Content Include="Models\Carts.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
