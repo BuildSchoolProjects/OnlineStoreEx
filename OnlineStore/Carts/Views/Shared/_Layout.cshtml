@@ -137,35 +137,35 @@
                 <ul class="nav navbar-nav" style="width:600px;">
                     <li style="margin-top:2%;  margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fas fa-home mr-1" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { @class = "homecolor" })
+                            <i class="fas fa-home mr-1" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home" , new {},new { @class = "homecolor" })
                         </button>
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fas fa-book-open mr-1 " style="color:white;" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { @class = "homecolor" })
-                        </button>
-
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { @class = "homecolor" })
+                            <i class="fas fa-book-open mr-1 " style="color:white;" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
                         </button>
 
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product")
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
                         </button>
 
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { @class = "homecolor" })
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                        </button>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { @class = "homecolor" })
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
                 </ul>
