@@ -5,13 +5,13 @@
 }
 
 
-<h2>商品列表</h2>
+<h2><b>商品列表</b></h2>
 @if (ViewBag.ResultMessage != null)//判斷如果有訊息，則顯示。
 {
     @Html.Label("info", (string)ViewBag.ResultMessage, new { @class = "text-info" })
 }
 <table class="table">
-    <thead><tr><td colspan="2">操作</td><td>商品圖</td><td>編號</td><td>名稱</td><td>描述</td><td>售價</td><td>庫存</td></tr></thead>
+    <thead><tr><td colspan="2"><b>操作</b></td><td><b>商品圖</b></td><td><b>編號</b></td><td><b>名稱</b></td><td><b>描述</b></td><td><b>售價</b></td><td><b>庫存</b></td></tr></thead>
     <tbody>
         @foreach (var pd in this.Model) /* 使用foreach將所有商品列出 */
         {
@@ -42,7 +42,7 @@
 
 <div>
 @Html.ActionLink(
-                        "新增商品", "Create", new { }, new { @class = "btn btn-default" }
+                        "新增商品", "Create", new { }, new { @class = "btn btn-primary" }
                         )   
 </div>
             
