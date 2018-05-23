@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>我的訂單</h2>
+<h2><b>我的訂單</b></h2>
 
 <table class="table">
     <tr>
@@ -32,7 +32,7 @@
             </td>
             <td>
                 @Html.ActionLink("商品明細", "MyOrderDetail", new { id = item.Id }
-             , new { @class = "btn btn-default" })
+             , new { @class = "btn btn-primary" })
             </td>
         </tr>
     }
