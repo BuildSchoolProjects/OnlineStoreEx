@@ -1,25 +1,55 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+          crossorigin="anonymous">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
-        ul.Cart li{
+        ul.Cart li {
             width: 260px;
         }
 
-        ul.Cart li span{
-           margin : 2px; 
-        }
+            ul.Cart li span {
+                margin: 2px;
+            }
 
-        #CartButtons{
+        #CartButtons {
             display: inline-block;
         }
 
-        #CartButtons > a{
-            margin : 6px;
+        #CartButtons > a {
+            margin: 6px;
+        }
+
+        #Cart {
+            position: relative;
+            top:5px;
+            left: 1025px;
+            background-color: white;
+            width: 500px;
+            z-index:100!important;
+        }
+        a {
+            color: white !important;
+            
+        }
+
+            a:first-child {
+                background-color: #428bca;
+            }
+            a:Hover:first-child {
+                background-color: #357ebd !important;
+            }
+        a:nth-child(3) {
+            background-color: rgb(4, 189, 65);
+        }
+        button {
+            background-color: #357ebd;
+            color:white;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -76,11 +106,8 @@
 </head>
 
 
-
-
-
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="font-family:微軟正黑體;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="color:white;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -88,31 +115,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("IT鐵人購物網站", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div>
+                    @Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("商品管理", "Index", "Product")</li>
-                    <li>@Html.ActionLink("會員管理", "Index", "ManageUser")</li>
-                    <li>@Html.ActionLink("訂單管理", "Index", "ManageOrder")</li>
-                    <li id="Cart">
-                        @Html.Partial("_CartPartial")
+                <ul class="nav navbar-nav" style="width:600px;">
+                    <li style="margin-top:2%;  margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fas fa-home mr-1" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home")
+                        </button>
                     </li>
-                </ul>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fas fa-book-open mr-1" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home")
+                        </button>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home")
+                        </button>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product")
+                        </button>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser")
+                        </button>
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder")
+                        </button>
+                    </li>           
+                </ul>               
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
-
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-            </footer>
-        </div>
+        <span id="Cart">
+            <button type="button" class="btn btn btn-secondary">
+                <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.Partial("_CartPartial")
+            </button>
+        </span>
+        
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+        </footer>
+    </div>
 </body>
 </html>
