@@ -7,3 +7,111 @@
 
     <p>每天7~19點為客服時間</p>
 </div>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>預估交通費用計算</title>
+    <!-- Required meta tags -->
+    
+
+    <!-- Bootstrap CSS -->
+    
+    <style>
+        .mapstyle {
+            top: 2%;
+            left: 2%;
+            width: 700px;
+            height: 600px;
+            /* border: 1px solid #000000; */
+            border-radius: 25px 25px;
+            box-shadow: 0 0 50px;
+        }
+
+        #Car {
+            border-radius: 50px 50px;
+        }
+
+        #Taxi {
+            border-radius: 50px 50px;
+        }
+
+        #Bus {
+            border-radius: 50px 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            <br/>
+            <div id="map" class="mapstyle"></div>
+        </div>
+        <div class="col">
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="direction" class="directionstyle"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQiX_j1Fz8VfooVbMbQiyVrZy6HlgHbJw&callback=initMap"
+            type="text/javascript">
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <script>
+    var map;
+    var marker = null;
+    var center = { lat: 24.7571075, lng: 120.952429 };
+    var point1 = null, point2 = null;
+    var directionsService = null;
+    var directionsDisplay = null;
+
+    window.onload = function () {
+
+      map = new google.maps.Map(
+        document.getElementById('map'), {
+          center: center,
+          zoom: 15
+        });
+
+      directionsService = new google.maps.DirectionsService();
+      directionsDisplay = new google.maps.DirectionsRenderer();
+      directionsDisplay.setMap(map);
+
+      map.addListener("click", function (e) {
+
+        if (point1 != null && point2 != null) {
+          point1 = null;
+          point2 = null;
+        }
+
+        if (point1 == null) {
+          point1 = e.latLng.lat() + ',' + e.latLng.lng();
+          return;
+        }
+        if (point2 == null) {
+          point2 = e.latLng.lat() + ',' + e.latLng.lng();
+        }
+
+        console.log(point1);
+        console.log(point2);
+
+
+      
+    
+      });
+    }
+    </script>
+</body>
+
+</html>
