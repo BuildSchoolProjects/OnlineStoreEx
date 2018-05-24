@@ -16,17 +16,17 @@
             width: 260px;
         }
 
-        ul.Cart li span {
-            margin: 2px;
-        }
+            ul.Cart li span {
+                margin: 2px;
+            }
 
         #CartButtons {
             display: inline-block;
         }
 
-        #CartButtons > a {
-            margin: 6px;
-        }
+            #CartButtons > a {
+                margin: 6px;
+            }
 
         /*#Cart {
             position: relative;
@@ -41,7 +41,7 @@
             color: white !important
         }
 
-         
+
 
         a:Hover:first-child {
             background-color: #357ebd !important;
@@ -55,6 +55,7 @@
             background-color: #357ebd;
             color: white;
         }
+
         .back-top {
             position: fixed;
             bottom: 50px;
@@ -64,10 +65,11 @@
             font-size: 1em;
             color: white;
         }
+
         #Cart {
             position: fixed;
             right: 10%;
-            top:60px;
+            top: 60px;
             font-size: 1em;
             color: white;
         }
@@ -78,6 +80,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @* 購物車Js *@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
         //網頁載入完成時執行之function
         $(document).ready(function () {
@@ -122,6 +125,25 @@
                 $('li#Cart').html(msg);
             });
         }
+    </script>
+    <script>
+        jQuery(document).ready(function () {
+            var offset = 220;
+            var duration = 500;
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            jQuery('.back-top').click(function (event) {
+                event.preventDefault();
+                jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            })
+        });
     </script>
 </head>
 

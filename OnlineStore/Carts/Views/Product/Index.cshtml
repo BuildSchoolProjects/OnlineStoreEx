@@ -1,11 +1,11 @@
-﻿<div class="container" style="width:90%;">
+﻿
     @model List<Carts.Models.Product>
     @{
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-
+<div class="container" style="width:90%;">
     <h2><b>商品列表</b></h2>
     @if (ViewBag.ResultMessage != null)//判斷如果有訊息，則顯示。
     {
