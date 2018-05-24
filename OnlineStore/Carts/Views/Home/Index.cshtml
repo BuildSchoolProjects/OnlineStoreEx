@@ -18,34 +18,8 @@
     </div>*@
 
 <div class="row">
-    @foreach (var product in this.Model)
-    {
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
-                <div class="caption">
-                    <h3>@product.Name</h3>
-                    <p>@product.Description</p>
-                    <p>售價 : @product.Price</p>
-                    <p>庫存 : @product.Quantity</p>
-                    <p>
-                        <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
-                           class="btn btn-primary" role="button">
-                            加入購物車
-                        </a>
-                        <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-default" role="button">
-                            詳細資訊
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    }
+
 </div>
-
-
-
-
 
 
 
@@ -62,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="container"  style="width:90%;">
+<div class="container" style="width:90%;">
     <div class="w3-container w3-text-grey" id="jeans">
         <p>8 items</p>
     </div>
@@ -126,7 +100,31 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        @foreach (var product in this.Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
+                    <div class="caption">
+                        <h3>@product.Name</h3>
+                        <p>@product.Description</p>
+                        <p>售價 : @product.Price</p>
+                        <p>庫存 : @product.Quantity</p>
+                        <p>
+                            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
+                               class="btn btn-primary" role="button">
+                                加入購物車
+                            </a>
+                            <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-default" role="button">
+                                詳細資訊
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 <div class="container"  style="width:90%;">
     <div class="w3-container" style="background-color:#428bca;color:white" w3-padding-32">

@@ -17,18 +17,18 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+<div class="container" style="width:90%;">
     <div class="form-horizontal">
         <h2><b>新增商品</b></h2>
         <hr />
         @if (ViewBag.ResultMessage != null)
         {
-            @Html.ValidationSummary(true, (string)ViewBag.ResultMessage , new { @class = "text-danger" })
+            @Html.ValidationSummary(true, (string)ViewBag.ResultMessage, new { @class = "text-danger" })
         }
         <div class="form-group">
             <div class="col-md-2 control-label"><b>商品名稱</b></div>
             <div class="col-md-10">
-                
+
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
@@ -106,8 +106,9 @@
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("返回", "Index")
 </div>
+    }
+
+    <div>
+        @Html.ActionLink("返回", "Index")
+    </div>
