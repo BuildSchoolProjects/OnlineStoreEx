@@ -247,6 +247,7 @@
     <Content Include="image\jeans4.jpg" />
     <Content Include="image\logo.jpg" />
     <Content Include="Models\Carts.edmx.sql" />
+    <Content Include="Models\User.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Carts.edmx">
