@@ -2,7 +2,8 @@
     //取得當前購物車所有內容    
     var currentCart = Carts.Models.Cart.Operation.GetCurrentCart();  
 }
-<a id="CartDropDown" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">
+
+<a id="CartDropDown" class="dropdown-toggle" style="color:black;font-family:'微軟正黑體'" data-toggle="dropdown">
     @String.Format( "共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count )
     <span class="caret"></span>
 </a>

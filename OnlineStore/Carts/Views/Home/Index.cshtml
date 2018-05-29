@@ -10,6 +10,40 @@
     .ProductImg {
         height: 300px;
     }
+    .product-grid{
+        width:25%;
+    }
+    .product-grid .product-item {
+        background-color: #fff;
+        padding: 0 35px 35px 35px;
+        text-align: center;
+    }
+    .product-item {
+        box-shadow: 0px 0px 0px 0px #f5f5f5;
+        position: relative;
+        z-index: 100;
+        border: 1px solid #fff;
+        margin-bottom: 12px;
+    }
+    .mini-next {
+        right: 11px;
+        border-right: 0;
+    }
+    .mini-next, .mini-prev {
+        z-index: 300;
+        position: absolute;
+        color: black;
+        font-family: "fontawesome";
+        font-weight: 100;
+        font-size: 28px;
+        top: 126px;
+        opacity: 0;
+        height: 36px;
+        width: 36px;
+        background-color: #fff;
+        display: inline-block;
+        border: 1px solid #EEEEEE;
+    }
 </style>
 
 @*<div class="jumbotron">
@@ -27,7 +61,7 @@
 <div class="container" style="width:90%;">
 
     <div class="w3-display-container w3-container">
-        <img src="~/image/jeans.jpg" alt="Jeans" style="width:100%">
+        <img src="~/image/jeans.jpg" alt="Jeans" style="width:115%;">
         <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
             <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
             <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
@@ -42,18 +76,46 @@
     </div>
 
     <!-- Product grid -->
-
-    <div class="w3-row w3-grayscale">
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <img src="~/image/jeans1.jpg" style="width:100%">
-                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-            </div>
-            <div class="w3-container">
-                <img src="~/image/jeans4.jpg" style="width:100%">
-                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-            </div>
+    <div class="row">
+        <div class="col product-grid">
+            <form class="custom" onsubmit="return false" method="post">
+                <div class="product-item text-center">
+                    <a href="#next" class="mini-next"></a>
+                    <a href="#prev" class="mini-prev"></a>
+                    <div class="image">
+                        <div class="caroufredsel_wrapper" style="display:block;text-align:center;float:none;
+                        top:auto;right:auto;bottom:auto;left:auto;z-index:auto;margin:0px;overflow:hidden;
+                        position:relative;width:212px;height:281px;">
+                            <a style="display:inline-block">
+                                <img src="~/image/jeans1.jpg" style="width:100%">
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+                    </div>
+                </div>
+            </form>
         </div>
+        <div class="col product-grid"></div>
+        <div class="col product-grid"></div>
+        <div class="col product-grid"></div>
+    </div>
+
+    <div class="w3-row w3-grayscale">      
+        <div class="w3-col l3 s6">
+                <div class="w3-container">
+                    <a href="#next" class="mini-next"></a>
+                    <a href="#prev" class="mini-prev"></a>
+                    <img src="~/image/jeans1.jpg" style="width:100%">
+                    <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+                </div>
+                <div class="w3-container">
+                    <img src="~/image/jeans4.jpg" style="width:100%">
+                    <p>Mega Ripped Jeans<br><b>$19.99</b></p>
+                </div>
+            </div>
 
         <div class="w3-col l3 s6">
             <div class="w3-container">

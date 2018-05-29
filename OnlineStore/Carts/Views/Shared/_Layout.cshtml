@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
-        ul.Cart li {
+        /*ul.Cart li {
             width: 260px;
         }
 
@@ -26,7 +26,7 @@
 
             #CartButtons > a {
                 margin: 6px;
-            }
+            }*/
 
         /*#Cart {
             position: relative;
@@ -37,13 +37,7 @@
             z-index: 100 !important;
         }*/
 
-        .homecolor {
-            color: white !important
-        }
-
-
-
-        a:Hover:first-child {
+        /*a:Hover:first-child {
             background-color: #357ebd !important;
         }
 
@@ -56,6 +50,54 @@
             color: white;
         }
 
+        #Cart {
+            position: fixed;
+            right: 10%;
+            top: 60px;
+            font-size: 1em;
+            color: white;
+        }
+        .style-one-header {
+            padding: 35px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }*/
+        .body-content{
+            position:relative;
+            top:-75px;
+            left:-70px;
+        }
+        .top-logo {
+            text-align: center;
+            display: block;
+        }
+        .logo{
+            position:relative;
+            top:-100px;
+        }
+        #shoppingcart {
+            position: absolute;
+            right:-10px;
+        }
+        .top-menu {
+            min-height: 20px;
+            position: relative;
+            border-bottom: 5px solid #9792E3;
+            margin-top: -120px;
+            text-align: center;
+        }
+        .top-menu ul li {
+            display: inline;
+            font-size: 18px;
+            text-align: center;
+            position:relative;
+            margin-left:32px;
+        }
+        .homecolor {
+            color: #6457A6 !important;
+            font-weight:bold;
+            font-family:"微軟正黑體";
+        }
         .back-top {
             position: fixed;
             bottom: 50px;
@@ -65,13 +107,8 @@
             font-size: 1em;
             color: white;
         }
-
-        #Cart {
-            position: fixed;
-            right: 10%;
-            top: 60px;
-            font-size: 1em;
-            color: white;
+        li {
+            color: #6457A6;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -149,8 +186,51 @@
 
 
 <body style="font-family:微軟正黑體;">
-
-    <div class="navbar navbar-inverse navbar-fixed-top" style="color:white; background-color:#428bca !important;">
+    <div class="container">       
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <h4>
+                        <i class="fa fa-registered" aria-hidden="true"></i>&nbsp;@Html.ActionLink("註冊", "Register", "Account", new { }, new { @class = "homecolor" })
+                        &nbsp;|&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;@Html.ActionLink("登入", "Login", "Account", new { }, new { @class = "homecolor" })
+                    </h4>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="top-logo">
+                        <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div id="shoppingcart">
+                        <h4><i class="fa fa-shopping-cart" aria-hidden="true">@Html.Partial("_CartPartial")</i></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="top-menu">
+                    <ul>
+                        <li>
+                            <i class="fa fa-home" aria-hidden="true"></i>&nbsp;@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
+                        </li>
+                        <li>
+                            <i class="fa fa-street-view" aria-hidden="true"></i>&nbsp;@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                        </li>
+                        <li>
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>&nbsp;@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                        </li>
+                        <li>
+                            <i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                        </li>
+                        <li>
+                            <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>&nbsp;@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                        </li>
+                        <li>
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    @*<div class="navbar navbar-inverse navbar-fixed-top" style="color:white; background-color:#428bca !important;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -209,16 +289,16 @@
             </button>
         </span>
 
-    </div>
+    </div>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
     </div>
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    @*<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
         <div class="w3-container w3-display-container w3-padding-16">
             <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-            @*<h3 class="w3-wide"><b>LOGO</b></h3>*@
+            <h3 class="w3-wide"><b>LOGO</b></h3>
         </div>
         <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
             <a href="#" class="w3-bar-item w3-button">Shirts</a>
@@ -240,7 +320,7 @@
         <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
         <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
         <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
-    </nav>
+    </nav>*@
     <a href="#" class="back-top"> TOP </a>
 </body>
 </html>
