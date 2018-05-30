@@ -12,7 +12,7 @@
     {
         foreach (var cartitem in currentCart)
         {
-            //依序輸出 : <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
+            //依序輸出 : <li><a>可愛橡皮擦. <span>50元 X 2</span></a></li>
             <li class="col-xs-12">
                 <span class="col-xs-9" >@cartitem.Name @cartitem.Price.ToString("0.0") 元 X @cartitem.Quantity </span>
                 <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@cartitem.Id')">
