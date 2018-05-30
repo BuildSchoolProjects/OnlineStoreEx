@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
 <style>
     #registerLink{
-        /*color:white;*/
+        color:white;
     }
     #loginLink {
-        /*color: white;*/
+        color: white;
     }
 </style>
 @if (Request.IsAuthenticated)
@@ -28,8 +28,14 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+        <li >
+            <button type="button" class="btn btn btn-secondary"><i class="fa fa-registered" aria-hidden="true"></i>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</button>
+        </li>
+
+
+        <li><button type="button" class="btn btn btn-secondary"><i class="fa fa-sign-in" aria-hidden="true"></i>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) </button></li>
+
     </ul>
 }
 
