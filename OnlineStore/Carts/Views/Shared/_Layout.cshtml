@@ -40,7 +40,18 @@
         .homecolor {
             color: white !important
         }
+        .top-logo {
+            text-align: center;
+            display: block;
+            height:3em !important;
+         
+        }
 
+        .logo {
+            position: relative;
+            top: -100px;
+            
+        }
 
 
         a:Hover:first-child {
@@ -68,10 +79,13 @@
 
         #Cart {
             position: fixed;
-            right: 10%;
+            right: 8%;
             top: 60px;
             font-size: 1em;
             color: white;
+        }
+        #top-menu {        
+            border-bottom: 5px solid #9792E3;                 
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -123,7 +137,7 @@
             .done(function (msg) {
                 //將回傳的購物車頁面 填入 li#Cart
                 $('li#Cart').html(msg);
-            });
+                });
         }
     </script>
     <script>
@@ -149,9 +163,30 @@
 
 
 <body style="font-family:微軟正黑體;">
+    <div class="container">
+        <div class="row  text-center">
+            <div class="col-sm-2">
+                <div class="LoginPr">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <div class="col-sm-2">
+               <div></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="top-logo">
+                    <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
+                </div>
+            </div>
+        </div>
+        </div>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" style="color:white; background-color:#428bca !important;">
-        <div class="container">
+
+
+    <br />
+
+    <div class="navbar navbar-inversewh" style="color:white; background-color:white !important;">
+        <div class="container"  id="top-menu">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -162,16 +197,16 @@
                     @Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })
                 </div>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="margin-left:25%;">
                 <ul class="nav navbar-nav" style="width:600px;">
                     <li style="margin-top:2%;  margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fas fa-home mr-1" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home" , new {},new { @class = "homecolor" })
+                            <i class="fa fa-home" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fas fa-book-open mr-1 " style="color:white;" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                            <i class="fa fa-street-view" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
                         </button>
 
                     </li>
@@ -183,23 +218,24 @@
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                            <i class="fa fa-list-ul" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
                         </button>
 
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                            <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
                     <li style="margin-top:2%; margin-left:1%;">
                         <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                
             </div>
+            
         </div>
     </div>
     <div class="container body-content">
@@ -215,32 +251,32 @@
         <hr />
     </div>
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    @*<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
         <div class="w3-container w3-display-container w3-padding-16">
             <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
             @*<h3 class="w3-wide"><b>LOGO</b></h3>*@
-        </div>
-        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-            <a href="#" class="w3-bar-item w3-button">Shirts</a>
-            <a href="#" class="w3-bar-item w3-button">Dresses</a>
-            <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-                Jeans <i class="fa fa-caret-down"></i>
-            </a>
-            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-                <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-                <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-                <a href="#" class="w3-bar-item w3-button">Straight</a>
+    @*</div>
+            <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+                <a href="#" class="w3-bar-item w3-button">Shirts</a>
+                <a href="#" class="w3-bar-item w3-button">Dresses</a>
+                <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+                    Jeans <i class="fa fa-caret-down"></i>
+                </a>
+                <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+                    <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
+                    <a href="#" class="w3-bar-item w3-button">Relaxed</a>
+                    <a href="#" class="w3-bar-item w3-button">Bootcut</a>
+                    <a href="#" class="w3-bar-item w3-button">Straight</a>
+                </div>
+                <a href="#" class="w3-bar-item w3-button">Jackets</a>
+                <a href="#" class="w3-bar-item w3-button">Gymwear</a>
+                <a href="#" class="w3-bar-item w3-button">Blazers</a>
+                <a href="#" class="w3-bar-item w3-button">Shoes</a>
             </div>
-            <a href="#" class="w3-bar-item w3-button">Jackets</a>
-            <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-            <a href="#" class="w3-bar-item w3-button">Blazers</a>
-            <a href="#" class="w3-bar-item w3-button">Shoes</a>
-        </div>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
-    </nav>
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+        </nav>*@
     <a href="#" class="back-top"> TOP </a>
 </body>
 </html>
