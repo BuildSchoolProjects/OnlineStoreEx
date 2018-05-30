@@ -82,10 +82,12 @@
             right: 8%;
             top: 60px;
             font-size: 1em;
-            color: white;
+            color: white !important;
+            z-index:10;
         }
         #top-menu {        
-            border-bottom: 5px solid #9792E3;                 
+            border-bottom: 5px solid #9792E3;  
+            z-index:2;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -194,7 +196,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div>
-                    @Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })
+                    @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
                 </div>
             </div>
             <div class="navbar-collapse collapse" style="margin-left:25%;">
