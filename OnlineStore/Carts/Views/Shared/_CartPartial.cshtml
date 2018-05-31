@@ -1,12 +1,15 @@
 ﻿@{
-    //取得當前購物車所有內容    
-    var currentCart = Carts.Models.Cart.Operation.GetCurrentCart();  
+    //取得當前購物車所有內容
+    var currentCart = Carts.Models.Cart.Operation.GetCurrentCart();
 }
+@* 改為button *@
 
-<a id="CartDropDown" class="dropdown-toggle" style="color:white; font-family:'微軟正黑體';" data-toggle="dropdown">
-    @String.Format( "共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count )
+<button type="button" id="CartDropDown" class="dropdown-toggle btn btn btn-secondary" style="color:white; font-family:'微軟正黑體';" data-toggle="dropdown">
+    <i class="fa fa-user mr-1" aria-hidden="true"></i>
+    @String.Format("共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count)
     <span class="caret"></span>
-</a>
+</button>
+@* 改為button End *@
 <ul class="dropdown-menu Cart" role="menu" aria-labelledby="CartDropDown">
     @if (currentCart.Count > 0)
     {
