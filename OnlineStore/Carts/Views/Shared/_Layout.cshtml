@@ -81,7 +81,8 @@
             right: 8%;
             top: 60px;
             font-size: 1em;
-            color: white !important;
+            color: black !important;
+            background-color: #357ebd !important;
         }
 
         #top-menu {
@@ -167,11 +168,12 @@
 
 
 <body style="font-family:微軟正黑體;">
-    <div class="container body-content">
+    <div class="container body-content">       
         <span id="Cart" style="z-index: 99;">
-            <button type="button" class="btn btn btn-secondary">
-                <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.Partial("_CartPartial")
-            </button>
+            @* 把button移到CartPartial *@
+            @*<button type="button" class="btn btn btn-secondary">*@
+                @Html.Partial("_CartPartial")
+            @*</button>*@
         </span>
 
     </div>
