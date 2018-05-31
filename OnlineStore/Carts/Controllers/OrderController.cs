@@ -46,7 +46,8 @@ namespace Carts.Controllers
                     db.OrderDetails.AddRange(orderDetails);
                     db.SaveChanges();
                 }
-                return Content("訂購成功");
+                var Url = "~/Home";
+                return Redirect(Url);
             }
             return View();
         }
