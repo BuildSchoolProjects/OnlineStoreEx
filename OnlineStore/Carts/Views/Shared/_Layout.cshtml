@@ -40,17 +40,16 @@
         .homecolor {
             color: white !important
         }
+
         .top-logo {
             text-align: center;
             display: block;
-            height:3.9em !important;
-         
+            height: 3.9em !important;
         }
 
         .logo {
             position: relative;
             top: -100px;
-            
         }
 
 
@@ -83,11 +82,11 @@
             top: 60px;
             font-size: 1em;
             color: white !important;
-            
         }
-        #top-menu {        
-            border-bottom: 5px solid #9792E3;  
-            z-index:2;
+
+        #top-menu {
+            border-bottom: 5px solid #9792E3;
+            z-index: 2;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -96,7 +95,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @* 購物車Js *@
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <script type="text/javascript">
         //網頁載入完成時執行之function
         $(document).ready(function () {
@@ -112,9 +111,8 @@
             })
                 .done(function (msg) {
                     //將回傳的購物車頁面 填入 li#Cart
-                    $('li#Cart').html(msg);
+                    $('span#Cart').html(msg);
                 });
-            location.reload();
         }
 
         //移除購物車內商品
@@ -126,9 +124,8 @@
             })
                 .done(function (msg) {
                     //將回傳的購物車頁面 填入 li#Cart
-                    $('li#Cart').html(msg);
+                    $('span#Cart').html(msg);
                 });
-            location.reload();
         }
 
         //清空購物車內所有商品
@@ -140,11 +137,12 @@
             })
             .done(function (msg) {
                 //將回傳的購物車頁面 填入 li#Cart
-                $('li#Cart').html(msg);
-                });
-            location.reload();
+                $('span#Cart').html(msg);
+            });
         }
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         jQuery(document).ready(function () {
             var offset = 220;
@@ -164,19 +162,20 @@
             })
         });
     </script>
+
 </head>
 
 
 <body style="font-family:微軟正黑體;">
     <div class="container body-content">
-        <span id="Cart"  style="z-index: 99;">
+        <span id="Cart" style="z-index: 99;">
             <button type="button" class="btn btn btn-secondary">
                 <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.Partial("_CartPartial")
             </button>
         </span>
 
     </div>
-    <div class="container"  style="z-index: 9;">
+    <div class="container" style="z-index: 9;">
         <div class="row  text-center">
             <div class="col-sm-2">
                 <div class="LoginPr">
@@ -206,9 +205,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div>
-                    @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
-                </div>
+
+                @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
+
             </div>
             <div class="navbar-collapse collapse" style="margin-left:25%;">
                 <ul class="nav navbar-nav" style="width:600px;">
@@ -245,6 +244,7 @@
                             <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                         </button>
                     </li>
+
                 </ul>
 
             </div>
@@ -284,5 +284,6 @@
             <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
         </nav>*@
     <a href="#" class="back-top"> TOP </a>
+
 </body>
 </html>
