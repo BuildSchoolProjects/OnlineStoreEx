@@ -4,13 +4,13 @@
 }
 @* 改為button *@
 
-<button type="button" id="CartDropDown" class="dropdown-toggle btn btn btn-secondary" style="color:white; font-family:'微軟正黑體';" data-toggle="dropdown">
+<button type="button" id="CartDropDown" class="dropdown-toggle btn btn btn-secondary" style="color:black; font-family:'微軟正黑體'; border-radius:5px 5px;" data-toggle="dropdown">
     <i class="fa fa-user mr-1" aria-hidden="true"></i>
     @String.Format("共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count)
     <span class="caret"></span>
 </button>
 @* 改為button End *@
-<ul class="dropdown-menu Cart" role="menu" aria-labelledby="CartDropDown">
+<ul class="dropdown-menu Cart navbar-left" role="menu" aria-labelledby="CartDropDown">
     @if (currentCart.Count > 0)
     {
         foreach (var cartitem in currentCart)
