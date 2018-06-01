@@ -168,96 +168,99 @@
 
 
 <body style="font-family:微軟正黑體;">
-    <div class="container body-content">       
-        <span id="Cart" style="z-index: 99;border-radius: 5px 5px;">
-            @* 把button移到CartPartial *@
-            @*<button type="button" class="btn btn btn-secondary">*@
+    <div class="navbar-fixed-top" style="background-color:white;">
+        <div style=" margin-top:2%;"></div>
+        <div class="container body-content">
+            <span id="Cart" style="z-index: 99;border-radius: 5px 5px;">
+                @* 把button移到CartPartial *@
+                @*<button type="button" class="btn btn btn-secondary">*@
                 @Html.Partial("_CartPartial")
-            @*</button>*@
-        </span>
+                @*</button>*@
+            </span>
 
-    </div>
-    <div class="container" style="z-index: 9;">
-        <div class="row  text-center">
-            <div class="col-sm-2">
-                <div class="LoginPr">
-                    @Html.Partial("_LoginPartial")
+        </div>
+        <div class="container" style="z-index: 9;">
+            <div class="row  text-center">
+                <div class="col-sm-2">
+                    <div class="LoginPr">
+                        @Html.Partial("_LoginPartial")
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-2">
-                <div></div>
-            </div>
-            <div class="col-sm-4">
-                <div class="top-logo">
-                    <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
+                <div class="col-sm-2">
+                    <div></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="top-logo">
+                        <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <br />
+        <br />
 
-    <div class="navbar navbar-inversewh" style="color:white; background-color:white !important; z-index:10;">
-        <div class="container" id="top-menu">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <div class="navbar navbar-inversewh" style="color:white; background-color:white !important; z-index:10;">
+            <div class="container" id="top-menu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
+                    @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
+
+                </div>
+                <div class="navbar-collapse collapse" style="margin-left:25%;">
+                    <ul class="nav navbar-nav" style="width:600px;">
+                        <li style="margin-top:2%;  margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-home" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                        </li>
+                        <li style="margin-top:2%; margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-street-view" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+
+                        </li>
+                        <li style="margin-top:2%; margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+
+                        </li>
+                        <li style="margin-top:2%; margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                            </button>
+
+                        </li>
+                        <li style="margin-top:2%; margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                            </button>
+                        </li>
+                        <li style="margin-top:2%; margin-left:1%;">
+                            <button type="button" class="btn btn btn-secondary">
+                                <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                            </button>
+                        </li>
+
+                    </ul>
+
+                </div>
 
             </div>
-            <div class="navbar-collapse collapse" style="margin-left:25%;">
-                <ul class="nav navbar-nav" style="width:600px;">
-                    <li style="margin-top:2%;  margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-home" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
-                        </button>
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-street-view" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-                        </button>
-
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
-                        </button>
-
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-list-ul" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
-                        </button>
-
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
-                        </button>
-                    </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
-                        </button>
-                    </li>
-
-                </ul>
-
-            </div>
-
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-    </div>
+        <div class="container body-content" style="margin-top:10%;">
+            @RenderBody()
+            <hr />
+        </div>
+    
     <!-- Sidebar/menu -->
     @*<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
         <div. class="w3-container w3-display-container w3-padding-16">
