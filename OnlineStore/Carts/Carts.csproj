@@ -355,6 +355,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Cart\" />
+    <Folder Include="Views\UserManageUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
