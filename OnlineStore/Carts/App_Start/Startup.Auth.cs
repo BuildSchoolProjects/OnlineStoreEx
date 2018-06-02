@@ -58,11 +58,12 @@ namespace Carts
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "390497873471-9f7q18132tfgr8b57bvualhsr2gos66c.apps.googleusercontent.com",
+                ClientSecret = "1tr_Dx6duCXON2lHSnh29mHa"
+            });
+           
         }
     }
 }
