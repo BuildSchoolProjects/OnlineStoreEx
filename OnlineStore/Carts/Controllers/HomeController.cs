@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Carts.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()

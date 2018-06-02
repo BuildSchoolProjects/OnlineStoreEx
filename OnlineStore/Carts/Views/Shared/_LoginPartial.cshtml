@@ -1,20 +1,20 @@
 ﻿@using Microsoft.AspNet.Identity
 <style>
     #registerLink{
-        color:white;
+        color:black;
     }
     #loginLink {
-        color: white;
+        color: black;
     }
 </style>
 @if (Request.IsAuthenticated)
 {
     
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right" style="background-color:background:rgb(242, 145, 0); color:white;">
+    <ul class="nav navbar-nav navbar-left" style="background-color:rgb(242, 145, 0); color:white;">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
@@ -27,7 +27,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-left">
 
         <li >
             <button type="button" class="btn btn btn-secondary"><i class="fa fa-registered" aria-hidden="true"></i>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</button>
