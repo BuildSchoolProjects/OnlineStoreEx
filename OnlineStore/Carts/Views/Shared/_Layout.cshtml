@@ -1,9 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
+
+
+
+
         #LogoIMG {
             width: 250px;
             height: 95px;
@@ -13,8 +25,16 @@
             z-index: -1;
         }
 
+
+
         .back-top {
             position: fixed;
+            bottom: 50px;
+            right: 0;
+            background: black;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
         }
 
         #Cart {
@@ -35,102 +55,162 @@
             color: black !important;
             background-color: #357ebd !important;
         }
-
-        .homecolor {
-            + color:black;
-            + font-size:20px;
-            +
-        }
-
-
-        #SearchInput {
-            position: fixed;
-            right: 12%;
-            top: 6em;
-        }
-
-
-        #SearchBtn {
-            position: fixed;
-            right: 12%;
-            top: 6em;
-        }
     </style>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @* 購物車Js *@
+
+    <script type="text/javascript">
+        //網頁載入完成時執行之function
+        $(document).ready(function () {
+            console.log("ready!");
+        });
+
+        //加入編號為productId的商品進購物車
+        function AddToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('span#Cart').html(msg);
+                });
+        }
+
+        //移除購物車內商品
+        function RemoveFromCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("RemoveFromCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart.
+                    $('span#Cart').html(msg);
+                });
+        }
+
+        //清空購物車內所有商品
+        function ClearCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClearCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('span#Cart').html(msg);
+            });
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            var offset = 220;
+            var duration = 500;
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop() > offset) {
+                    jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            jQuery('.back-top').click(function (event) {
+                event.preventDefault();
+                jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            })
+        });
+    </script>
+
 </head>
-<body style="font-family:微軟正黑體; background-color:rgb(250, 250, 250)">
 
 
-    <div class="container-fluid navbar navbar-inversewh navbar-fixed-top" style="z-index: 9; background-color:white; border-bottom-color:rgb(210, 210, 210)">
-        <div class="row mb-5">
-            <div class="col-4">
-                <div class="LoginPr" id="_LoginPartial" style="z-index:99;">
+<body style="font-family:微軟正黑體;">
+    <div class="container body-content">
+        <span id="Cart" style="z-index: 99;">
+            @* 把button移到CartPartial *@
+            @*<button type="button" class="btn btn btn-secondary">*@
+            @Html.Partial("_CartPartial")
+            @*</button>*@
+        </span>
+
+    </div>
+    <div class="container" style="z-index: 9;">
+        <div class="row  text-center">
+            <div class="col-sm-2">
+                <div class="LoginPr">
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
-            <div class="col-4">
-                <div class="top-logo">
-                    <img src="~/image/logo.jpg" id="LogoIMG">
-
-                </div>
-
+            <div class="col-sm-2">
+                <div></div>
             </div>
-            <div class="col-4">
-                <div>
-                    <div class="navbar-fixed-top" id="_CartPartial">
-                        <span id="Cart" style="z-index: 2;  border-radius:5px 5px; color:black;">
-                            @* 把button移到CartPartial *@
-                            @*<button type="button" class="btn btn btn-secondary">.*@
-                            @Html.Partial("_CartPartial")
-                            @*</button>*@
-
-                        </span>
-
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="SearchInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="SearchBtn">查詢</button>
-
-                        </div>
-
-                    </div>
+            <div class="col-sm-4">
+                <div class="top-logo">
+                    <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top:10%; margin-left:30%">
-            <div class="col">
+    </div>
+
+
+
+    <br />
+
+    <div class="navbar navbar-inversewh" style="color:white; background-color:white !important; z-index:10;">
+        <div class="container" id="top-menu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
+
+            </div>
+            <div class="navbar-collapse collapse" style="margin-left:25%;">
                 <ul class="nav navbar-nav" style="width:600px;">
-
-                    <li>
-                        @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
+                    <li style="margin-top:2%;  margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-home" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
+                        </button>
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-street-view" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                        </button>
 
                     </li>
-
-                    <li>
-                        @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-
-                    </li>
-
-                    <li>
-                        @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                        </button>
 
                     </li>
-
-                    <li>
-                        @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
-
-                    </li>
-
-                    <li>
-                        @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-list-ul" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                        </button>
 
                     </li>
-
-                    <li>
-                        @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
-
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>@Html.ActionLink("會員資料", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                        </button>
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <button type="button" class="btn btn btn-secondary">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單歷程", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        </button>
                     </li>
 
                 </ul>
@@ -139,5 +219,15 @@
 
         </div>
     </div>
-    </body>
-    </html>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+   
+    <a href="#" class="back-top"> TOP </a>
+
+</body>
+</html>
+
+

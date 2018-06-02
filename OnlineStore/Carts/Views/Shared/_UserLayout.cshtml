@@ -12,60 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
-        ul.Cart li {
-            width: 260px;
+
+
+
+
+        #LogoIMG {
+             width: 250px;
+             height: 95px;
+             position: fixed;
+            top: 0.5em;
+             left: 43%;
+             z-index: -1;
         }
-
-            ul.Cart li span {
-                margin: 2px;
-            }
-
-        #CartButtons {
-            display: inline-block;
-        }
-
-            #CartButtons > a {
-                margin: 6px;
-            }
-
-        /*#Cart {
-            position: relative.;
-            top: 5px;
-            left: 1025px;
-            background-color: white;
-            width: 500px;
-            z-index: 100 !important;
-        }*/
-
-        .homecolor {
-            color: white !important
-        }
-
-        .top-logo {
-            text-align: center;
-            display: block;
-            height: 3.9em !important;
-        }
-
-        .logo {
-            position: relative;
-            top: -100px;
-        }
-
-
-        a:Hover:first-child {
-            background-color: #357ebd !important;
-        }
-
-        a:nth-child(3) {
-            background-color: rgb(4, 189, 65);
-        }
-
-        button {
-            background-color: #357ebd;
-            color: white;
-        }
-
+ 
+      
+   
         .back-top {
             position: fixed;
             bottom: 50px;
@@ -78,16 +39,20 @@
 
         #Cart {
             position: fixed;
-            right: 8%;
-            top: 60px;
+            right: 12%;
+             top: 3em;
             font-size: 1em;
             color: black !important;
             background-color: #357ebd !important;
         }
-
-        #top-menu {
-            border-bottom: 5px solid #9792E3;
-            z-index: 2;
+        #_LoginPartial {
+             position: fixed;
+            left: 10%;
+             top: 5em;
+             z-index: -5;
+             font-size: 1em;
+           color: black !important;
+             background-color: #357ebd !important;
         }
     </style>
     @Styles.Render("~/Content/css")
