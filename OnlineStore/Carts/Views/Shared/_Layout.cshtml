@@ -12,10 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
-
-
-
-
         #LogoIMG {
             width: 250px;
             height: 95px;
@@ -24,8 +20,6 @@
             left: 43%;
             z-index: -1;
         }
-
-
 
         .back-top {
             position: fixed;
@@ -54,6 +48,23 @@
             font-size: 1em;
             color: black !important;
             background-color: #357ebd !important;
+        }
+
+        .homecolor {
+            color: black;
+            font-size: 20px;
+        }
+
+        #SearchInput {
+            position: fixed;
+            right: 12%;
+            top: 6em;
+        }
+
+        #SearchBtn {
+            position: fixed;
+            right: 12%;
+            top: 6em;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -133,101 +144,154 @@
 </head>
 
 
-<body style="font-family:微軟正黑體;">
-    <div class="container body-content">
-        <span id="Cart" style="z-index: 99;">
-            @* 把button移到CartPartial *@
-            @*<button type="button" class="btn btn btn-secondary">*@
-            @Html.Partial("_CartPartial")
-            @*</button>*@
-        </span>
 
-    </div>
-    <div class="container" style="z-index: 9;">
-        <div class="row  text-center">
-            <div class="col-sm-2">
-                <div class="LoginPr">
+
+<body style="font-family:微軟正黑體; background-color:rgb(250, 250, 250)">
+
+
+    <div class="container-fluid navbar navbar-inversewh navbar-fixed-top" style="z-index: 9; background-color:white; border-bottom-color:rgb(210, 210, 210)">
+        <div class="row mb-5">
+            <div class="col-4">
+                <div class="LoginPr" id="_LoginPartial" style="z-index:99;">
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div></div>
-            </div>
-            <div class="col-sm-4">
+            <div class="col-4">
                 <div class="top-logo">
-                    <img src="~/image/logo.jpg" style="width:70%;height:auto;" class="logo" />
+                    <img src="~/image/logo.jpg" id="LogoIMG">
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    <div class="navbar-fixed-top" id="_CartPartial">
+                        <span id="Cart" style="z-index: 2;  border-radius:5px 5px; color:black;">
+                            @* 把button移到CartPartial *@
+                            @*<button type="button" class="btn btn btn-secondary">*@
+                            @Html.Partial("_CartPartial")
+                            @*</button>*@
+                        </span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="SearchInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="SearchBtn">查詢</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <br />
-
-    <div class="navbar navbar-inversewh" style="color:white; background-color:white !important; z-index:10;">
-        <div class="container" id="top-menu">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
-
-            </div>
-            <div class="navbar-collapse collapse" style="margin-left:25%;">
+        <div class="row" style="margin-top:10%; margin-left:30%">
+            <div class="col">
                 <ul class="nav navbar-nav" style="width:600px;">
-                    <li style="margin-top:2%;  margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-home" aria-hidden="true"></i>@Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
-                        </button>
+                    <li>
+                        @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
                     </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-street-view" aria-hidden="true"></i>@Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-                        </button>
-
+                    <li>
+                        @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
                     </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-user mr-1" aria-hidden="true"></i>@Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
-                        </button>
-
+                    <li>
+                        @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
                     </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-list-ul" aria-hidden="true"></i>@Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
-                        </button>
-
+                    <li>
+                        @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
                     </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-pied-piper-alt" aria-hidden="true"></i>@Html.ActionLink("會員資料", "Index", "ManageUser", new { }, new { @class = "homecolor" })
-                        </button>
+                    <li>
+                        @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
                     </li>
-                    <li style="margin-top:2%; margin-left:1%;">
-                        <button type="button" class="btn btn btn-secondary">
-                            <i class="fa fa-bar-chart" aria-hidden="true"></i>@Html.ActionLink("訂單歷程", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
-                        </button>
+                    <li>
+                        @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                     </li>
-
                 </ul>
-
             </div>
-
         </div>
     </div>
 
-    <div class="container body-content">
+    <br />
+
+
+    <div class="container" id="top-menu">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            @*@Html.ActionLink("BuildShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand homecolor" })*@
+
+        </div>
+        @*<div class="navbar-collapse collapse" style="margin-left:25%;">
+                <ul class="nav navbar-nav" style="width:600px;">
+                    <li style="margin-top:2%;  margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
+                        </a>
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                        </a>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                        </a>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                        </a>
+
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                        </a>
+                    </li>
+                    <li style="margin-top:2%; margin-left:1%;">
+                        <a>
+                            @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        </a>
+                    </li>
+               </ul>
+            </div>*@
+    </div>
+
+    <div class="container body-content" style="z-index:1; margin-top:13%">
         @RenderBody()
         <hr />
     </div>
-   
+    <!-- Sidebar/menu -->
+    @*<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+        <div. class="w3-container w3-display-container w3-padding-16">
+            <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+            @*<h3 class="w3-wide"><b>LOGO</b></h3>*@
+    @*</div>
+            <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+                <a href="#" class="w3-bar-item w3-button">Shirts</a>
+                <a href="#" class="w3-bar-item w3-button">Dresses</a>
+                <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+                    Jeans <i class="fa fa-caret-down"></i>
+                </a>
+                <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+                    <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
+                    <a href="#" class="w3-bar-item w3-button">Relaxed</a>
+                    <a href="#" class="w3-bar-item w3-button">Bootcut</a>
+                    <a href="#" class="w3-bar-item w3-button">Straight</a>
+                </div>
+                <a href="#" class="w3-bar-item w3-button">Jackets</a>
+                <a href="#" class="w3-bar-item w3-button">Gymwear</a>
+                <a href="#" class="w3-bar-item w3-button">Blazers</a>
+                <a href="#" class="w3-bar-item w3-button">Shoes</a>
+            </div>
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+        </nav>*@
     <a href="#" class="back-top"> TOP </a>
 
 </body>
 </html>
-
 
