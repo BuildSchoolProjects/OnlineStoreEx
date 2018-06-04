@@ -43,7 +43,7 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
-                var result = (from s in db.Products where s.CategoryId == 12 select s).ToList();
+                var result = (from s in db.Products where s.CategoryId == 1 select s).ToList();
                 return View(result);
             }
         }
