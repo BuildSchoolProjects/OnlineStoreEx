@@ -51,6 +51,10 @@
         border: 1px solid #EEEEEE;
     }
 
+
+
+
+
     /* The Nivo Slider styles */
     .nivoSlider_wrapper {
         padding: 0;
@@ -396,9 +400,31 @@
     </div>
 
     <div class="row">
+        <div class="col">
+            <ul class="nav navbar-nav" style="width:600px;">
+                <li>
+                    @Html.ActionLink("衣服", "Index", "Home", new { }, new { @class = "homecolor" })
+                </li>
+                <li>
+                    @Html.ActionLink("褲子", "About", "Home", new { }, new { @class = "homecolor" })
+                </li>
+                <li>
+                    @Html.ActionLink("襪子", "Contact", "Home", new { }, new { @class = "homecolor" })
+                </li>
+                <li>
+                    @Html.ActionLink("包包", "Index", "Product", new { }, new { @class = "homecolor" })
+                </li>
+                <li>
+                    @Html.ActionLink("配件", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                </li>
+                <li>
+                    @Html.ActionLink("帽子", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {
             <div class="col-sm-6 col-md-4">
