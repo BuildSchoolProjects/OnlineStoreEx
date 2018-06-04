@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
 @model List<Carts.Models.Product>
 @{
-    ViewBag.Title = "購物首頁";
+    ViewBag.Title = "ClothesCategory";
     var UserID = User.Identity.GetUserId();
     var UserName = User.Identity.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -50,12 +50,6 @@
         display: inline-block;
         border: 1px solid #EEEEEE;
     }
-
-
-
-
-
-    
 </style>
 
 @*<div class="jumbotron">
@@ -70,15 +64,14 @@
 
 <div class="container" style="width:100%;">
 
-    
+
 
     <div class="row">
         <div class="col">
-            <hr>
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             衣服ˇ
                         </a>
 
@@ -97,7 +90,7 @@
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             褲子ˇ
                         </a>
 
@@ -116,7 +109,7 @@
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             襪子ˇ
                         </a>
 
@@ -130,12 +123,12 @@
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
                                 @Html.ActionLink("中筒襪", "Index", "Home", new { }, new { @class = "homecolor" })
                             </button>
-</div>
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-bottom-color:black; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-color:black; margin-right:1em; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             配件ˇ
                         </a>
 
@@ -152,7 +145,7 @@
             </ul>
         </div>
     </div>
-    <hr>
+
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {

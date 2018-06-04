@@ -18,6 +18,74 @@ namespace Carts.Controllers
                 return View(result);
             }
         }
+        //衣服類別為1
+        public ActionResult ClothesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 1 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //長T-shirt類別為11
+        public ActionResult LongClothesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 11 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //短T-shirt類別為12
+        public ActionResult ShortClothesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 12 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //外套類別為13
+        public ActionResult CoatClothesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 13 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //褲子類別為2
+        public ActionResult PantsCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 2 select s).ToList();
+                return View(result);
+            }
+        }
+        //襪子類別為3
+        public ActionResult SockCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 3 select s).ToList();
+                return View(result);
+            }
+        }
+        //配件類別為4
+        public ActionResult AccessoriesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 4 select s).ToList();
+                return View(result);
+            }
+        }
+
 
         public ActionResult Details(int id)
         {
