@@ -1,0 +1,283 @@
+﻿@using Microsoft.AspNet.Identity;
+@model List<Carts.Models.Product>
+@{
+    ViewBag.Title = "CoatClothesCategory";
+    var UserID = User.Identity.GetUserId();
+    var UserName = User.Identity.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .ProductImg {
+        height: 300px;
+    }
+
+    .product-grid {
+        width: 25%;
+    }
+
+        .product-grid .product-item {
+            background-color: #fff;
+            padding: 0 35px 35px 35px;
+            text-align: center;
+        }
+
+    .product-item {
+        box-shadow: 0px 0px 0px 0px #f5f5f5;
+        position: relative;
+        z-index: 100;
+        border: 1px solid #fff;
+        margin-bottom: 12px;
+    }
+
+    .mini-next {
+        right: 11px;
+        border-right: 0;
+    }
+
+    .mini-next, .mini-prev {
+        z-index: 300;
+        position: absolute;
+        color: black;
+        font-family: "fontawesome";
+        font-weight: 100;
+        font-size: 28px;
+        top: 126px;
+        opacity: 0;
+        height: 36px;
+        width: 36px;
+        background-color: #fff;
+        display: inline-block;
+        border: 1px solid #EEEEEE;
+    }
+</style>
+
+@*<div class="jumbotron">
+        <h2>Buildschool MVC</h2>
+        <h6><span></span> @Html.ActionLink("關於網站", "About", new { }, new { @class = "btn btn-primary btn-lg" }) </h6>
+    </div>*@
+
+
+
+
+<!-- Image header -->
+
+<div class="container" style="width:100%;">
+
+
+
+    <div class="row">
+        <div class="col">
+            <ul class="nav navbar-nav" style="width:600px;">
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            衣服ˇ
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("長T-shirt", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("短T-shirt", "ShortClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("外套", "CoatClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            褲子ˇ
+                        </a>
+
+                        <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("長褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("短褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("睡褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            襪子ˇ
+                        </a>
+
+                        <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("長襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("短襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("中筒襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-color:black; margin-right:1em; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            配件ˇ
+                        </a>
+
+                        <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("帽子", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("手錶", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("眼鏡", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:1em">
+        @foreach (var product in this.Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
+                    <div class="caption">
+                        <h3>@product.Name</h3>
+                        <p>@product.Description</p>
+                        <p>售價 : @product.Price</p>
+                        <p>庫存 : @product.Quantity</p>
+                        <p>賣家 : @product.UserName</p>
+                        <p>
+                            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
+                               class="btn btn-primary" role="button">
+                                加入購物車
+                            </a>
+                            <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-default" role="button">
+                                詳細資訊
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@*<div class="container"  style="width:90%;">
+    <div class="w3-container" style="background-color:#428bca;color:white" w3-padding-32">
+        <h1>Subscribe</h1>
+        <p>To get special offers and VIP treatment:</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
+        <button type="button" class="w3-button w3-yellow w3-margin-bottom">Subscribe</button>
+    </div>*@
+<!-- Footer -->
+@*<footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+            <div class="w3-row-padding">
+                <div class="w3-col s4">
+                    <h4>Contact</h4>
+                    <p>Questions? Go ahead.</p>
+                    <form action="/action_page.php" target="_blank">
+                        <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+                        <button type="submit" class="w3-button w3-block" style="background-color:#428bca;color:white;width:80%">Send</button>
+                    </form>
+                </div>
+
+                <div class="w3-col s4" style="font-size:15px;">
+                    <h4>About</h4>
+                    <p><a href="#">About us</a></p>
+                    <p><a href="#">We're hiring</a></p>
+                    <p><a href="#">Support</a></p>
+                    <p><a href="#">Find store</a></p>
+                    <p><a href="#">Shipment</a></p>
+                    <p><a href="#">Payment</a></p>
+                    <p><a href="#">Gift card</a></p>
+                    <p><a h2ref="#">Return</a></p>
+                    <p><a href="#">Help</a></p>
+                </div>
+
+                <div class="w3-col s4 w3-justify" style="font-size:15px;">
+                    <h4>Store</h4>
+                    <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
+                    <p><i class="fa fa-fw fa-phone"></i> 0930214589</p>
+                    <p><i class="fa fa-fw fa-envelope"></i> BuildSchool@gmail.com</p>
+                    <h4>We accept</h4>
+                    <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
+                    <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
+                    <br>
+                    <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+                </div>
+            </div>
+        </footer>
+
+        <div class="w3-center w3-padding-24" style="background-color:#428bca;color:white">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+    </div>*@
+<!-- End page content -->
+<!-- Newsletter Modal -->
+
+
+<div id="newsletter" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom" style="padding:32px;">
+        <div class="w3-container w3-white w3-center">
+            <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+            <h2 class="w3-wide">NEWSLETTER</h2>
+            <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function JumpWindows() {
+        alert("已經加到購物車囉!");
+    }
+</script>
+
+
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
