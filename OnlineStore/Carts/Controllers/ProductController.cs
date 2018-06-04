@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,9 +17,9 @@ namespace Carts.Controllers
 
             //接收轉導的成功訊息
             ViewBag.ResultMessage = TempData["ResultMessage"];
-
+            var userId = HttpContext.User.Identity.GetUserId();
             //使用CartsEntities類別，名稱為db
-            using( Models.CartsEntities db = new Models.CartsEntities() )
+            using ( Models.CartsEntities db = new Models.CartsEntities() )
             {
                 //使用LinQ語法抓取目前Products資料庫中所有資料
                 result = (from s in db.Products select s).ToList();
@@ -88,6 +89,7 @@ namespace Carts.Controllers
         {
             if( this.ModelState.IsValid ) //判斷使用者輸入資料是否正確
             {
+                var userId = HttpContext.User.Identity.GetUserId();
                 using (Models.CartsEntities db = new Models.CartsEntities())
                 {
                     //抓取Product.Id等於回傳postback.Id的資料
@@ -98,7 +100,7 @@ namespace Carts.Controllers
                     result.PublishDate = postback.PublishDate;          result.Quantity = postback.Quantity;
                     result.Status = postback.Status;                    result.CategoryId = postback.CategoryId;
                     result.DefaultImageId = postback.DefaultImageId;    result.Description = postback.Description;
-                    result.DefaultImageURL = postback.DefaultImageURL;
+                    result.DefaultImageURL = postback.DefaultImageURL;  
 
                     //儲存所有變更
                     db.SaveChanges();

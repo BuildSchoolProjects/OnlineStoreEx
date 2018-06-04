@@ -9,23 +9,45 @@ namespace Carts.Controllers
 {
     public class ManageUserController : Controller
     {
-        // GET: ManageUser
+        //GET: ManageUser
         public ActionResult Index()
         {
+            var userId = HttpContext.User.Identity.GetUserId();
             ViewBag.ResultMessage = TempData["ResultMessage"];
-            using(Models.UserEntities db = new Models.UserEntities())
+            using (Models.UserEntities db = new Models.UserEntities())
             {   //抓取指定AspNetUsers中的資料，並且放入Models.ManageUser模型中
                 var result = (from s in db.AspNetUsers
+                              where s.Id == userId
                               select new Models.ManageUser
                               {
                                   Id = s.Id,
                                   UserName = s.UserName,
                                   Email = s.Email
-                                 
+
                               }).ToList();
                 return View(result);
             }
         }
+        //public ActionResult Index()
+        //{
+        //    ViewBag.ResultMessage = TempData["ResultMessage"];
+        //    using (Models.UserEntities db = new Models.UserEntities())
+        //    {   //抓取指定AspNetUsers中的資料，並且放入Models.ManageUser模型中
+        //        var result = (from s in db.AspNetUsers
+                           
+        //                      select new Models.ManageUser
+        //                      {
+        //                          Id = s.Id,
+        //                          UserName = s.UserName,
+        //                          Email = s.Email
+
+        //                      }).ToList();
+        //        return View(result);
+        //    }
+        //}
+
+
+
 
         public ActionResult Edit(string id)
         {
