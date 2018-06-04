@@ -17,12 +17,12 @@ namespace Carts.Controllers
 
             //接收轉導的成功訊息
             ViewBag.ResultMessage = TempData["ResultMessage"];
-            var userId = HttpContext.User.Identity.GetUserId();
+            var userName = HttpContext.User.Identity.GetUserName();
             //使用CartsEntities類別，名稱為db
             using ( Models.CartsEntities db = new Models.CartsEntities() )
             {
                 //使用LinQ語法抓取目前Products資料庫中所有資料
-                result = (from s in db.Products select s).ToList();
+                result = (from s in db.Products where s.UserName == userName select s).ToList();
 
                 //將result傳送給檢視
                 return View(result);
@@ -41,10 +41,26 @@ namespace Carts.Controllers
         {
             if (this.ModelState.IsValid) //如果資料驗證成功
             {
+                var userName = HttpContext.User.Identity.GetUserName();
                 using (Models.CartsEntities db = new Models.CartsEntities())
                 {
                     //將回傳資料postback加入至Products
-                    db.Products.Add(postback);
+                    
+                    var product = new Models.Product()
+                    {
+                        Name = postback.Name,
+                       
+                        Price = postback.Price,
+                        CategoryId = postback.CategoryId,
+                        DefaultImageId = postback.DefaultImageId,
+                        DefaultImageURL = postback.DefaultImageURL,
+                        Quantity = postback.Quantity,
+                        UserName = userName,
+                        Status = postback.Status,
+                        PublishDate = postback.PublishDate,
+                        Description = postback.Description
+                    };
+                    db.Products.Add(product);
 
                     //儲存異動資料
                     db.SaveChanges();

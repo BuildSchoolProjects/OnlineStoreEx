@@ -9,7 +9,6 @@
 
 namespace Carts.Models
 {
-    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
     
@@ -25,5 +24,6 @@ namespace Carts.Models
         public Nullable<long> DefaultImageId { get; set; }
         public int Quantity { get; set; }
         public string DefaultImageURL { get; set; }
+        public string UserName { get; set; }
     }
 }
