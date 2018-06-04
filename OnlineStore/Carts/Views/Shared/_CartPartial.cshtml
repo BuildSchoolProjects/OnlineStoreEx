@@ -4,7 +4,7 @@
 }
 @* 改為button *@
 
-<button type="button" id="CartDropDown" class="dropdown-toggle btn btn btn-secondary" style="color:black; font-family:'微軟正黑體'; border-radius:5px 5px;" data-toggle="dropdown">
+<button type="button" id="CartDropDown" class="dropdown-toggle btn btn btn-secondary" style="color:black; font-family:'微軟正黑體'; border-radius:5px 5px; width:20em;" data-toggle="dropdown">
     <i class="fa fa-user mr-1" aria-hidden="true"></i>
     @String.Format("共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count)
     <span class="caret"></span>
@@ -16,26 +16,25 @@
         foreach (var cartitem in currentCart)
         {
             //依序輸出 : <li><a>可愛橡皮擦. <span>50元 X 2</span></a></li>
-            <li class="col-xs-12">
-                <span class="col-xs-9">@cartitem.Name @cartitem.Price.ToString("0.0") 元 X @cartitem.Quantity </span>
-                <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@cartitem.Id')">
+            <li class="col-md-12">
+                <span class="col-md-10" style="font-size:14px; margin-top:0.5em;">@cartitem.Name @cartitem.Price.ToString("0.0") 元 X @cartitem.Quantity </span>
+                <span class="btn btn-danger col-md-1"  style="width:2.5em; margin-top:0.5em;" onclick="RemoveFromCart('@cartitem.Id')">
                     X
                 </span>
             </li>
         }
-        <li class="divider"></li>
         <li>
-            <div id="CartButtons" class="col-xs-8">
-                <a class="btn btn-success text-center col-xs-5" href="@Url.Action("Index","Order",new { })">
+            <div id="CartButtons" class="col-md-12">
+                <a class="btn btn-success text-center col-md-5" style="width:6em; margin-top:0.5em; margin-left:2.5em;" href="@Url.Action("Index","Order",new { })">
                     結帳去
                 </a>
-                <a class="btn btn-danger text-center  col-xs-5" onclick="ClearCart()">清空</a>
+                <a class="btn btn-danger text-center  col-md-5"  style="width:6em; margin-top:0.5em; margin-left:0.5em;" onclick="ClearCart()">清空</a>
             </div>
         </li>
     }
     else
     {
-        <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
+        <li class="text-center" style="width:20em;"><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
     }
 
 </ul>

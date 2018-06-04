@@ -2,6 +2,7 @@
 <style>
     #registerLink {
         color: black;
+        
     }
 
     #loginLink {
@@ -28,10 +29,10 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-left" style="background-color:white;">
 
         <li>
-            <button type="button" class="btn btn btn-secondary"><i class="fa fa-registered" aria-hidden="true"></i>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</button>
+            <button type="button" class="btn btn btn-dark"><i class="fa fa-registered" aria-hidden="true"></i>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</button>
         </li>
 
 

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
 @model List<Carts.Models.Product>
 @{
-    ViewBag.Title = "購物首頁";
+    ViewBag.Title = "WatchCategory";
     var UserID = User.Identity.GetUserId();
     var UserName = User.Identity.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -50,12 +50,6 @@
         display: inline-block;
         border: 1px solid #EEEEEE;
     }
-
-
-
-
-
-    
 </style>
 
 @*<div class="jumbotron">
@@ -78,7 +72,7 @@
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "CoatClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "Index", "Home", new { }, new { @class = "homecolor" })</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                             <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                         </button>
@@ -98,7 +92,7 @@
                 </li>
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("褲子", "PantsCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("褲子", "Index", "Home", new { }, new { @class = "homecolor" })</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                             <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                         </button>
@@ -118,7 +112,7 @@
                 </li>
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("襪子", "SockCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("襪子", "Index", "Home", new { }, new { @class = "homecolor" })</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                             <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                         </button>
@@ -138,7 +132,7 @@
                 </li>
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("配件", "AccessoriesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("配件", "Index", "Home", new { }, new { @class = "homecolor" })</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                             <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                         </button>
@@ -158,7 +152,7 @@
             </ul>
         </div>
     </div>
-    <hr>
+
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {
@@ -289,3 +283,4 @@
             <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>
     </div>*@
+
