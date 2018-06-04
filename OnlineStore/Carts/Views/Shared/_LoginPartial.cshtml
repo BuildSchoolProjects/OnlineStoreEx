@@ -17,7 +17,7 @@
 
         <ul class="nav navbar-nav navbar-left" style="background-color:white; color:black;">
             <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                Hello @User.Identity.GetUserName()
             </li>
             <li>
                 @Html.ActionLink("我的訂單", "MyOrder", "Order", routeValues: null, htmlAttributes: new { title = "Order" })
