@@ -17,15 +17,42 @@ namespace Carts.Controllers
 
             //接收轉導的成功訊息
             ViewBag.ResultMessage = TempData["ResultMessage"];
-            var userName = HttpContext.User.Identity.GetUserName();
+            
             //使用CartsEntities類別，名稱為db
             using ( Models.CartsEntities db = new Models.CartsEntities() )
             {
-                //使用LinQ語法抓取目前Products資料庫中所有資料
-                result = (from s in db.Products where s.UserName == userName select s).ToList();
+                var userName = HttpContext.User.Identity.GetUserName();
+                var userId = HttpContext.User.Identity.GetUserId();
+                using (Models.UserEntities dbs = new Models.UserEntities())
+                {
+                    var limits = "";
+                    var limit = (from s in dbs.AspNetUsers
+                                 where s.Id == userId
+                                 select new Models.ManageUser
+                                 {
+                                     Limit = s.Limit
 
-                //將result傳送給檢視
-                return View(result);
+                                 }).FirstOrDefault();
+                    foreach (var item in limit.Limit.ToString())
+                    {
+                        limits = item.ToString();
+                    }
+                    if (limits != "1")
+                    {
+                        result = (from s in db.Products where s.UserName == userName select s).ToList();
+
+                        //將result傳送給檢視
+                        return View(result);
+                    }
+                    else
+                    {
+                        //使用LinQ語法抓取目前Products資料庫中所有資料
+                        result = (from s in db.Products select s).ToList();
+
+                        //將result傳送給檢視
+                        return View(result);
+                    }
+                }
             }
         }
 

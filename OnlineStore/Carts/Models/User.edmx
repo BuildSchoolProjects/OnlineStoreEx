@@ -4,28 +4,29 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="ModelStoreContainer">
-    <EntitySet Name="AspNetUsers" EntityType="Model.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
-    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Limit" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -45,6 +46,7 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Limit" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
@@ -58,7 +60,8 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="IsTypeOf(Model.AspNetUser)">
         <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Limit" ColumnName="Limit" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
           <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
