@@ -401,10 +401,11 @@
 
     <div class="row">
         <div class="col">
+            <hr>
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             衣服ˇ
                         </a>
 
@@ -415,11 +416,11 @@
                             <br>
                             @Html.ActionLink("外套", "Index", "Home", new { }, new { @class = "homecolor" })
                         </div>
-                    </div>         
+                    </div>
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             褲子ˇ
                         </a>
 
@@ -434,7 +435,7 @@
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-bottom-color:black; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             襪子ˇ
                         </a>
 
@@ -449,7 +450,7 @@
                 </li>
                 <li>
                     <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-color:black; margin-right:1em; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-bottom-color:black; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             配件ˇ
                         </a>
 
@@ -462,11 +463,11 @@
                         </div>
                     </div>
                 </li>
-                  
+
             </ul>
         </div>
     </div>
-
+    <hr>
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {
