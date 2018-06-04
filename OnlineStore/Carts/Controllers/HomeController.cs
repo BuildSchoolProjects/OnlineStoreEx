@@ -23,7 +23,7 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
-                var result = (from s in db.Products where s.CategoryId == 11 && s.CategoryId == 12 && s.CategoryId == 13 select s).ToList();
+                var result = (from s in db.Products where s.CategoryId == 11 || s.CategoryId == 12 || s.CategoryId == 13 select s).ToList();
                 return View(result);
             }
         }
@@ -63,7 +63,7 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
-                var result = (from s in db.Products where s.CategoryId == 21 && s.CategoryId == 22 && s.CategoryId == 23 select s).ToList();
+                var result = (from s in db.Products where s.CategoryId == 21 || s.CategoryId == 22 || s.CategoryId == 23 select s).ToList();
                 return View(result);
             }
         }
@@ -103,7 +103,7 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
-                var result = (from s in db.Products where s.CategoryId == 31 && s.CategoryId == 32 && s.CategoryId == 33 select s).ToList();
+                var result = (from s in db.Products where s.CategoryId == 31 || s.CategoryId == 32 || s.CategoryId == 33 select s).ToList();
                 return View(result);
             }
         }
@@ -142,7 +142,7 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
-                var result = (from s in db.Products where s.CategoryId == 41 && s.CategoryId == 42 && s.CategoryId == 43 select s).ToList();
+                var result = (from s in db.Products where s.CategoryId == 41 || s.CategoryId == 42 || s.CategoryId == 43 select s).ToList();
                 return View(result);
             }
         }
