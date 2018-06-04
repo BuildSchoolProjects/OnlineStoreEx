@@ -80,10 +80,10 @@
                                 @Html.ActionLink("長T-shirt", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("短T-shirt", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("短T-shirt", "ShortClothesCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("外套", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("外套", "CoatClothesCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                         </div>
                     </div>
@@ -133,12 +133,16 @@
                         </a>
 
                         <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
-                            @Html.ActionLink("帽子", "Index", "Home", new { }, new { @class = "homecolor" })
-                            <br>
-                            @Html.ActionLink("手錶", "Index", "Home", new { }, new { @class = "homecolor" })
-                            <br>
-                            @Html.ActionLink("眼鏡", "Index", "Home", new { }, new { @class = "homecolor" })
-                        </div>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("帽子", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("手錶", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+                            <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                @Html.ActionLink("眼鏡", "Index", "Home", new { }, new { @class = "homecolor" })
+                            </button>
+</div>
                     </div>
                 </li>
 

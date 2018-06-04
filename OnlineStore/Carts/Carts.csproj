@@ -367,6 +367,20 @@
     <Content Include="Views\UserView\Index.cshtml" />
     <Content Include="Views\UserView\Edit.cshtml" />
     <Content Include="Views\Home\ClothesCategory.cshtml" />
+    <Content Include="Views\Home\ShortClothesCategory.cshtml" />
+    <Content Include="Views\Home\CoatClothesCategory.cshtml" />
+    <Content Include="Views\Home\PantsCategory.cshtml" />
+    <Content Include="Views\Home\LongPantsCategory.cshtml" />
+    <Content Include="Views\Home\ShortPantsCategory.cshtml" />
+    <Content Include="Views\Home\SleepPantsCategory.cshtml" />
+    <Content Include="Views\Home\SockCategory.cshtml" />
+    <Content Include="Views\Home\LongSockCategory.cshtml" />
+    <Content Include="Views\Home\ShortSockCategory.cshtml" />
+    <Content Include="Views\Home\TubeSockCategory.cshtml" />
+    <Content Include="Views\Home\AccessoriesCategory.cshtml" />
+    <Content Include="Views\Home\HatCategory.cshtml" />
+    <Content Include="Views\Home\WatchCategory.cshtml" />
+    <Content Include="Views\Home\GlassesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Cart\" />

@@ -67,6 +67,37 @@ namespace Carts.Controllers
                 return View(result);
             }
         }
+
+        //長褲類別為21
+        public ActionResult LongPantsCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 21 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //短褲類別為22
+        public ActionResult ShortPantsCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 22 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //睡褲類別為23
+        public ActionResult SleepPantsCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 23 select s).ToList();
+                return View(result);
+            }
+        }
+
         //襪子類別為3
         public ActionResult SockCategory()
         {
@@ -76,12 +107,72 @@ namespace Carts.Controllers
                 return View(result);
             }
         }
+
+        //襪子類別為31
+        public ActionResult LongSockCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 31 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //襪子類別為32
+        public ActionResult ShortSockCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 32 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //襪子類別為33
+        public ActionResult TubeSockCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 33 select s).ToList();
+                return View(result);
+            }
+        }
         //配件類別為4
         public ActionResult AccessoriesCategory()
         {
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
                 var result = (from s in db.Products where s.CategoryId == 4 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //配件類別為41
+        public ActionResult HatCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 41 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //配件類別為42
+        public ActionResult WatchCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 42 select s).ToList();
+                return View(result);
+            }
+        }
+
+        //配件類別為43
+        public ActionResult GlassesCategory()
+        {
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.CategoryId == 43 select s).ToList();
                 return View(result);
             }
         }
