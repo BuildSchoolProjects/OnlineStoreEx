@@ -366,6 +366,7 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\UserView\Index.cshtml" />
     <Content Include="Views\UserView\Edit.cshtml" />
+    <Content Include="Views\Home\ClothesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Cart\" />
