@@ -68,12 +68,14 @@
 
     <div class="row">
         <div class="col">
+            <hr>
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
-                    <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            衣服ˇ
-                        </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "Index", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                            <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                        </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
@@ -89,63 +91,64 @@
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown show">
-                        <a class="btn btn-dark dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            褲子ˇ
-                        </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("褲子", "Index", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                            <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                        </button>
 
                         <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("長褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("長褲", "LongPantsCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("短褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("短褲", "ShortPantsCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("睡褲", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("睡褲", "SleepPantsCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" style="border-color:black; margin-right:1em; font-size:25px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            襪子ˇ
-                        </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("襪子", "Index", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                            <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                        </button>
 
                         <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("長襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("長襪", "LongSockCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("短襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("短襪", "ShortSockCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("中筒襪", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("中筒襪", "TubeSockCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle homecolor" href="#" style="border-color:black; margin-right:1em; font-size:25px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            配件ˇ
-                        </a>
-
-                        <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("配件", "Index", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                            <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("帽子", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("帽子", "HatCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("手錶", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("手錶", "WatchCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("眼鏡", "Index", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("眼鏡", "GlassesCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                         </div>
                     </div>
                 </li>
-
             </ul>
         </div>
     </div>
