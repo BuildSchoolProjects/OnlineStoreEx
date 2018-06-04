@@ -50,6 +50,255 @@
         display: inline-block;
         border: 1px solid #EEEEEE;
     }
+
+    /* The Nivo Slider styles */
+    .nivoSlider_wrapper {
+        padding: 0;
+        margin: 0 auto 30px;
+        width: 1170px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nivoSlider {
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: white url("https://cloud.colaz.com.tw/image/catalog/COLAZ/KMT/KMT14.jpg") no-repeat 50% 50%;
+    }
+
+        .nivoSlider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: none;
+        }
+
+    .nivo-main-image {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    /* If an image is wrapped in a link */
+    .nivoSlider a.nivo-imageLink {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 6;
+        display: none;
+        background: white;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        background: url("https://www.illuminatecosmetics.com/skin/frontend/rwd/ashley/images/loader_no-cache-new.gif");
+    }
+
+    /* The slices and boxes in the Slider */
+    .nivo-slice {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        height: 100%;
+        top: 0;
+    }
+
+    .nivo-box {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        overflow: hidden;
+    }
+
+        .nivo-box img {
+            display: block;
+        }
+
+    /* Caption styles */
+    .nivo-caption {
+        position: absolute;
+        left: 0;
+        top: 33.9%;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        z-index: 8;
+        padding: 0 0 0 37.3%;
+        overflow: hidden;
+        display: none;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        /* Opera/IE 8+ */
+    }
+
+        .nivo-caption b {
+            padding: 5px;
+            margin: 0;
+            font-size: 25px;
+            line-height: 26px;
+            font-weight: 300;
+            color: #40919c;
+            text-transform: uppercase;
+        }
+
+        .nivo-caption h3 {
+            padding: 19px 0 20px;
+            position: relative;
+            margin: 0;
+            font-size: 44px;
+            line-height: 44px;
+            color: #7cc2cb;
+            text-transform: uppercase;
+        }
+
+            .nivo-caption h3:before {
+                content: "";
+                position: relative;
+                border-bottom: 2px solid #fff;
+                width: 66px;
+                height: 2px;
+                top: -15px;
+                left: -20px;
+                display: inline-block;
+            }
+
+            .nivo-caption h3:after {
+                content: "";
+                position: relative;
+                border-bottom: 2px solid #fff;
+                width: 66px;
+                height: 2px;
+                top: -15px;
+                right: -20px;
+                display: inline-block;
+            }
+
+        .nivo-caption a {
+            padding: 0 24px;
+            margin-top: 7px;
+            background: #7cc2cb;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 40px;
+            color: #fff;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+            .nivo-caption a:hover {
+                background: #40919c;
+                color: #fff;
+            }
+
+    .nivo-html-caption {
+        display: none;
+    }
+
+    /* Direction nav styles (e.g. Next & Prev) */
+    .nivo-directionNav {
+        height: 20px;
+        left: -42px;
+        position: absolute;
+        top: 46%;
+        visibility: hidden;
+        width: 107%;
+        z-index: 15;
+    }
+
+        .nivo-directionNav a {
+            z-index: 9;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+    .nivo-prevNav,
+    .nivo-nextNav {
+        display: inline-block;
+        visibility: visible;
+        padding: 0;
+        color: #7cc2cb;
+    }
+
+        .nivo-prevNav:before,
+        .nivo-nextNav:before {
+            content: '\f105';
+            font-family: "FontAwesome";
+            font-size: 21px;
+            -moz-transition: all 0.4s ease 0s;
+            -webkit-transition: all 0.4s ease 0s;
+            transition: all 0.4s ease 0s;
+        }
+
+        .nivo-prevNav:hover:before {
+            content: '\f100';
+            color: #488188;
+        }
+
+        .nivo-nextNav:hover:before {
+            content: '\f101';
+            color: #488188;
+        }
+
+    .nivo-prevNav {
+        float: left;
+    }
+
+        .nivo-prevNav:before {
+            content: '\f104';
+            font-family: "FontAwesome";
+            font-size: 21px;
+        }
+
+    .nivo-nextNav {
+        float: right;
+    }
+
+    /* Control nav styles (e.g. 1,2,3...) */
+    .nivo-controlNav {
+        position: absolute;
+        z-index: 990;
+        right: 5px;
+        bottom: 2px;
+        overflow: hidden;
+        width: auto;
+        display: block;
+        padding: 0;
+        text-align: center;
+    }
+
+    .nivo-controlNav {
+        font-size: 1em;
+        line-height: 1em;
+        font-weight: bold;
+    }
+
+        .nivo-controlNav a {
+            display: inline-block;
+            width: 22px;
+            height: 26px;
+            text-indent: -9999px;
+            border: 2px solid #fff;
+            margin: 0 2px;
+            cursor: pointer;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+            .nivo-controlNav a:hover, .nivo-controlNav a.active {
+                background: #fff;
+            }
+
+            .nivo-controlNav a.active {
+                cursor: default;
+            }
 </style>
 
 @*<div class="jumbotron">
@@ -66,6 +315,89 @@
 
 </div>
 <div class="container" style="width:100%;">
+
+    <div class="row">
+        <div class="nivoSlider_wrapper">
+            <div id="slider" class="nivoSlider" style="width:1170px; height:600px;">
+                <a href="http://livedemo00.template-help.com/osc_53355/redirect.php?action=banner&amp;goto=2&amp;osCsid=fdlcoukrp8bf0mbe2h7chcv4q5"
+                   target="_blank" class="nivo-imageLink" style="display: block;">
+                    <img src="images/banners/slide-1.jpg" alt="<div class=&quot;caption&quot;><b>2015</b><h3>New Arrivals</h3><a href=&quot;index.php?cPath=2&quot;>shop now!</a></div>"
+                         title="<div class=&quot;caption&quot;><b>2015</b><h3>New Arrivals</h3><a href=&quot;index.php?cPath=2&quot;>shop now!</a></div>"
+                         style="width: 1170px; visibility: hidden;">
+                </a>
+                <a href="http://livedemo00.template-help.com/osc_53355/redirect.php?action=banner&amp;goto=3&amp;osCsid=fdlcoukrp8bf0mbe2h7chcv4q5"
+                   target="_blank" class="nivo-imageLink" style="display: none;">
+                    <img src="images/banners/slide-2.jpg" alt="<div class=&quot;caption&quot;><b>save</b><h3>25% off</h3><a href=&quot;index.php?cPath=3&quot;>shop now!</a></div>"
+                         title="<div class=&quot;caption&quot;><b>save</b><h3>25% off</h3><a href=&quot;index.php?cPath=3&quot;>shop now!</a></div>"
+                         style="width: 1170px; visibility: hidden;">
+                </a>
+                <a href="http://livedemo00.template-help.com/osc_53355/redirect.php?action=banner&amp;goto=4&amp;osCsid=fdlcoukrp8bf0mbe2h7chcv4q5"
+                   target="_blank" class="nivo-imageLink" style="display: none;">
+                    <img src="images/banners/slide-3.jpg" alt="<div class=&quot;caption&quot;><b>BUY 2 ITEMS GET</b><h3>one for free</h3><a href=&quot;index.php?cPath=4&quot;>shop now!</a></div>"
+                         title="<div class=&quot;caption&quot;><b>BUY 2 ITEMS GET</b><h3>one for free</h3><a href=&quot;index.php?cPath=4&quot;>shop now!</a></div>"
+                         style="width: 1170px; visibility: hidden;">
+                </a>
+                <img class="nivo-main-image" src="images/banners/slide-1.jpg" style="display: inline; height: 480px; width: 1170px;">
+                <div class="nivo-caption" style="display: block;">
+                    <div class="caption">
+                        <b>2015</b>
+                        <h3>New Arrivals</h3>
+                        <a href="index.php?cPath=2">shop now!</a>
+                    </div>
+                </div>
+                <div class="nivo-directionNav">
+                    <a class="nivo-prevNav"></a>
+                    <a class="nivo-nextNav"></a>
+                </div>
+                <div class="nivo-slice" name="0" style="left: 0px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-0px;">
+                </div>
+                <div class="nivo-slice" name="1" style="left: 78px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-78px;">
+                </div>
+                <div class="nivo-slice" name="2" style="left: 156px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-156px;">
+                </div>
+                <div class="nivo-slice" name="3" style="left: 234px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-234px;">
+                </div>
+                <div class="nivo-slice" name="4" style="left: 312px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-312px;">
+                </div>
+                <div class="nivo-slice" name="5" style="left: 390px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-390px;">
+                </div>
+                <div class="nivo-slice" name="6" style="left: 468px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-468px;">
+                </div>
+                <div class="nivo-slice" name="7" style="left: 546px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-546px;">
+                </div>
+                <div class="nivo-slice" name="8" style="left: 624px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-624px;">
+                </div>
+                <div class="nivo-slice" name="9" style="left: 702px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-702px;">
+                </div>
+                <div class="nivo-slice" name="10" style="left: 780px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-780px;">
+                </div>
+                <div class="nivo-slice" name="11" style="left: 858px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-858px;">
+                </div>
+                <div class="nivo-slice" name="12" style="left: 936px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-936px;">
+                </div>
+                <div class="nivo-slice" name="13" style="left: 1014px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-1014px;">
+                </div>
+                <div class="nivo-slice" name="14" style="left: 1092px; width: 78px; height: 480px; opacity: 1; overflow: hidden; top: 0px;">
+                    <img src="images/banners/slide-1.jpg" style="position:absolute; width:1170px; height:auto; display:block !important; top:0; left:-1092px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         @foreach (var product in this.Model)
         {

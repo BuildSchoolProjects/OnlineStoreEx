@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +10,27 @@ namespace Carts.Controllers
     public class ManageOrderController : Controller
     {
         // GET: ManageOrder
+        //public ActionResult Index()
+        //{
+        //    using( Models.CartsEntities db = new Models.CartsEntities() )
+        //    { 
+        //        //取得Order中所有資料
+        //        var result = (from s in db.Orders 
+        //                      select s).ToList();
+
+        //        return View(result);
+        //    }
+        //}
         public ActionResult Index()
         {
-            using( Models.CartsEntities db = new Models.CartsEntities() )
+            using (Models.CartsEntities db = new Models.CartsEntities())
             {
+                var userId = HttpContext.User.Identity.GetUserId();
                 //取得Order中所有資料
-                var result = (from s in db.Orders 
-                              select s).ToList();
+                var result = (from s in db.Orders
+                              where s.UserId == userId
+                              select s
+                              ).ToList();
 
                 return View(result);
             }

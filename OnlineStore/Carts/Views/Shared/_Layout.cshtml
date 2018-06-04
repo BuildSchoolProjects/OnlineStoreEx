@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
@@ -77,9 +78,23 @@
     <script type="text/javascript">
         //網頁載入完成時執行之function
         $(document).ready(function () {
+
+         
             console.log("ready!");
         });
 
+     
+        function AddToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('span#Cart').html(msg);
+                });
+        }
         //加入編號為productId的商品進購物車
         function AddToCart(productId) {
             $.ajax({
@@ -140,7 +155,14 @@
             })
         });
     </script>
-   
+
+
+
+
+
+
+
+
 </head>
 
 
@@ -195,11 +217,11 @@
                     <li>
                         @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
                     </li>
-                    <li >
-                       @Html.ActionLink("會員資料", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                    <li>
+                        @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
                     </li>
                     <li>
-                        @Html.ActionLink("訂單資料", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                     </li>
                 </ul>
             </div>
@@ -291,7 +313,7 @@
             <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
         </nav>*@
     <a href="#" class="back-top"> TOP </a>
-   
+
 </body>
 </html>
 

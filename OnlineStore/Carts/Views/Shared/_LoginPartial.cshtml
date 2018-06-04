@@ -10,18 +10,19 @@
 </style>
 @if (Request.IsAuthenticated)
 {
+
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-left" style="background-color:rgb(242, 145, 0); color:white;">
-            <li style="margin-top: 14px">
-                Hello @User.Identity.GetUserName()
+        <ul class="nav navbar-nav navbar-left" style="background-color:white; color:black;">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li>
                 @Html.ActionLink("我的訂單", "MyOrder", "Order", routeValues: null, htmlAttributes: new { title = "Order" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" style=" color:black;">登出</a></li>
         </ul>
     }
 }
