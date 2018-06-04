@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>網站會員管理</h2>
@@ -20,7 +20,6 @@
         </th>
         <th>操作</th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
@@ -35,5 +34,4 @@
             </td>
         </tr>
     }
-
 </table>

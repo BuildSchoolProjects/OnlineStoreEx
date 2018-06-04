@@ -140,20 +140,7 @@
             })
         });
     </script>
-    <script>
-
-        $(document).ready(function () {
-
-
-            if (User.Identity.GetLimit() == 1) {
-                $("#ManageUserlink").append("@Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })");
-            }
-            else {
-                $("#ManageUserlink").append("@Html.ActionLink("會員管理", "Index", "UserView", new { }, new { @class = "homecolor" })");
-            }
-
-        }
-    </script>
+   
 </head>
 
 
@@ -208,11 +195,11 @@
                     <li>
                         @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
                     </li>
-                    <li id="ManageUserlink">
-                       
+                    <li >
+                       @Html.ActionLink("會員資料", "Index", "ManageUser", new { }, new { @class = "homecolor" })
                     </li>
                     <li>
-                        @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        @Html.ActionLink("訂單資料", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                     </li>
                 </ul>
             </div>
