@@ -26,13 +26,39 @@ namespace Carts.Controllers
             using (Models.CartsEntities db = new Models.CartsEntities())
             {
                 var userId = HttpContext.User.Identity.GetUserId();
-                //取得Order中所有資料
-                var result = (from s in db.Orders
-                              where s.UserId == userId
-                              select s
+                using (Models.UserEntities dbs = new Models.UserEntities())
+                {     var limits = "";
+                var limit = (from s in dbs.AspNetUsers
+                             where s.Id == userId
+                             select new Models.ManageUser
+                             {
+                                 Limit = s.Limit
+
+                             }).FirstOrDefault();
+                foreach (var item in limit.Limit.ToString())
+                {
+                    limits = item.ToString();
+                }
+
+                if (limits != "1")
+                {
+                    //取得Order中所有資料
+                    var result = (from s in db.Orders
+                                  where s.UserId == userId
+                                  select s
                               ).ToList();
 
-                return View(result);
+                    return View(result);
+                }
+                else
+                {
+                    //取得Order中所有資料
+                    var result = (from s in db.Orders
+                                  select s).ToList();
+
+                    return View(result);
+                }
+            }
             }
         }
 

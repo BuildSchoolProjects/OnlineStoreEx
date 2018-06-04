@@ -26,5 +26,6 @@ namespace Carts.Models
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public int Limit { get; set; }
     }
 }

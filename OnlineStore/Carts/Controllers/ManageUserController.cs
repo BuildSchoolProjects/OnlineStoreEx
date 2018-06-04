@@ -13,28 +13,62 @@ namespace Carts.Controllers
         public ActionResult Index()
         {
             var userId = HttpContext.User.Identity.GetUserId();
+           
             ViewBag.ResultMessage = TempData["ResultMessage"];
             using (Models.UserEntities db = new Models.UserEntities())
             {   //抓取指定AspNetUsers中的資料，並且放入Models.ManageUser模型中
-                var result = (from s in db.AspNetUsers
-                              where s.Id == userId
-                              select new Models.ManageUser
-                              {
-                                  Id = s.Id,
-                                  UserName = s.UserName,
-                                  Email = s.Email
+                var limits = "";
+                var limit = (from s in db.AspNetUsers
+                             where s.Id == userId
+                             select new Models.ManageUser
+                             {
+                               Limit = s.Limit
 
-                              }).ToList();
-                return View(result);
+                             }).FirstOrDefault();
+               foreach(var item in limit.Limit.ToString())
+                {
+                   limits = item.ToString();
+                }
+                
+                if (limits != "1")
+                {
+                    var result = (from s in db.AspNetUsers
+                                  where s.Id == userId
+                                  select new Models.ManageUser
+                                  {
+                                      Id = s.Id,
+                                      UserName = s.UserName,
+                                      Email = s.Email
+
+                                  }).ToList();
+                    return View(result);
+                }
+                else
+                {
+                    var result = (from s in db.AspNetUsers
+
+                                  select new Models.ManageUser
+                                  {
+                                      Id = s.Id,
+                                      UserName = s.UserName,
+                                      Email = s.Email
+
+                                  }).ToList();
+                    return View(result);
+                }
+
             }
         }
+
+     
+
         //public ActionResult Index()
         //{
         //    ViewBag.ResultMessage = TempData["ResultMessage"];
         //    using (Models.UserEntities db = new Models.UserEntities())
         //    {   //抓取指定AspNetUsers中的資料，並且放入Models.ManageUser模型中
         //        var result = (from s in db.AspNetUsers
-                           
+
         //                      select new Models.ManageUser
         //                      {
         //                          Id = s.Id,
