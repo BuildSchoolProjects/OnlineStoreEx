@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
 @model List<Carts.Models.Product>
 @{
-    ViewBag.Title = "購物首頁";
+    ViewBag.Title = "ClothesCategory";
     var UserID = User.Identity.GetUserId();
     var UserName = User.Identity.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -50,12 +50,6 @@
         display: inline-block;
         border: 1px solid #EEEEEE;
     }
-
-
-
-
-
-    
 </style>
 
 @*<div class="jumbotron">
@@ -70,7 +64,7 @@
 
 <div class="container" style="width:100%;">
 
-    
+
 
     <div class="row">
         <div class="col">
@@ -155,11 +149,10 @@
                         </div>
                     </div>
                 </li>
-
             </ul>
         </div>
     </div>
-    <hr>
+
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {
