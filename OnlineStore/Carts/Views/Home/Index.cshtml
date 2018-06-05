@@ -78,14 +78,14 @@
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "CoatClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                        <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                             <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                         </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
-                                @Html.ActionLink("長T-shirt", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                                @Html.ActionLink("長T-shirt", "LongClothesCategory", "Home", new { }, new { @class = "homecolor" })
                             </button>
                             <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
                                 @Html.ActionLink("短T-shirt", "ShortClothesCategory", "Home", new { }, new { @class = "homecolor" })

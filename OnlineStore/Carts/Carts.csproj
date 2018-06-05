@@ -381,6 +381,7 @@
     <Content Include="Views\Home\HatCategory.cshtml" />
     <Content Include="Views\Home\WatchCategory.cshtml" />
     <Content Include="Views\Home\GlassesCategory.cshtml" />
+    <Content Include="Views\Home\LongClothesCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Cart\" />
