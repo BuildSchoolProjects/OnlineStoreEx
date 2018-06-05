@@ -9,7 +9,7 @@ namespace Carts.Models
     // 您可以在 ApplicationUser 類別新增更多屬性，為使用者新增設定檔資料，請造訪 http://go.microsoft.com/fwlink/?LinkID=317594 以深入了解。
     public class ApplicationUser : IdentityUser
     {
-        public string Limit { get; internal set; }
+       
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

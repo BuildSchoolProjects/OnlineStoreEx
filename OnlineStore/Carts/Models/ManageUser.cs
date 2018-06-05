@@ -21,6 +21,6 @@ namespace Carts.Models
         [Display(Name = "電子郵件")]
         public string Email { get; set; }
 
-        public int Limit { get; set; }
+        public string Limit { get; set; }
     }
 }
