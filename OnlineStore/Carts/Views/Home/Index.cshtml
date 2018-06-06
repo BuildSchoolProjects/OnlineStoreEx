@@ -51,9 +51,30 @@
         border: 1px solid #EEEEEE;
     }
 
+    /* index-image */
 
+    .index-image {
+        height: 400px;
+        background: url(http://www.jacksonmabokgwanefoundation.co.za/wp-content/uploads/2017/11/slider3.jpg) center center no-repeat;
+        background-size: cover;
+        position: relative;
+    }
 
+    .index-image h2 {
+        font-size: 50px;
+        color: #fff;
+        color: rgba(0,0,0,0.8);
+        position: absolute;
+        margin: 0 0 0 150px;
+        left: 50%;
+        bottom: 10px;
+    }
 
+    .index-image h2 span {
+        display: block;
+        position: relative;
+        left: 2em;
+    }
 
     
 </style>
@@ -71,10 +92,8 @@
 <div class="container" style="width:100%;">
 
 
-
     <div class="row">
         <div class="col">
-            <hr>
             <ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="btn-group">
@@ -158,6 +177,19 @@
             </ul>
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="index-image">
+            <h2>
+                買一送一
+                <span>
+                    要買要快
+                    <i class="fas fa-heart"></i>
+                </span>
+            </h2>
+        </div>
+    </div>
+
     <hr>
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
