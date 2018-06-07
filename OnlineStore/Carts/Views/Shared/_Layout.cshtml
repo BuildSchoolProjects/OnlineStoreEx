@@ -42,11 +42,11 @@
             cursor: pointer;
             border: 3px solid #817f7f;
         }
-
-            .back-top:hover {
-                background-color: #817f7f;
-                color:#fff;
-            }
+    
+        .back-top:hover {
+            background-color: #817f7f;
+            color:#fff;
+        }
 
         #Cart {
             position: fixed;
@@ -272,14 +272,18 @@
                         @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
                     </li>
                     @*<li>
-                            @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-                        </li>*@
+            @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+        </li>*@
                     <li>
                         @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
                     </li>
                     <li>
+                        @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                    </li>
+
+                    <li>
                         <div class="btn-group" style="margin-top:0.2em;">
-                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+
                             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                                 <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -298,8 +302,10 @@
                         </div>
                     </li>
                     <li>
+                        @Html.ActionLink("褲子", "PantsCategory", "Home", new { }, new { @class = "homecolor" })
+                    </li>
+                    <li>
                         <div class="btn-group" style="margin-top:0.2em;">
-                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("褲子", "PantsCategory", "Home", new { }, new { @class = "homecolor" })</button>
                             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                                 <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -318,8 +324,11 @@
                         </div>
                     </li>
                     <li>
+                        @Html.ActionLink("襪子", "SockCategory", "Home", new { }, new { @class = "homecolor" })
+                    </li>
+                    <li>
                         <div class="btn-group" style="margin-top:0.2em;">
-                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("襪子", "SockCategory", "Home", new { }, new { @class = "homecolor" })</button>
+
                             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                                 <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -338,8 +347,10 @@
                         </div>
                     </li>
                     <li>
+                        @Html.ActionLink("配件", "AccessoriesCategory", "Home", new { }, new { @class = "homecolor" })
+                    </li>
+                    <li>
                         <div class="btn-group" style="margin-top:0.2em;">
-                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("配件", "AccessoriesCategory", "Home", new { }, new { @class = "homecolor" })</button>
                             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
                                 <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
                             </button>
