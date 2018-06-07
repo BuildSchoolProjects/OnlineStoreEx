@@ -14,6 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <style>
+        body {
+            font-family: Microsoft JhengHei;
+        }
+
         #LogoIMG {
             width: 250px;
             height: 95px;
@@ -24,18 +28,29 @@
         }
 
         .back-top {
+            border-radius: 50%;
+            line-height: 48px;
             position: fixed;
-            bottom: 50px;
-            right: 0;
-            background: black;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: white;
+            bottom: 30px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            right: 10px;
+            color: #817f7f;
+            font-size: 15px;
+            z-index: 50;
+            cursor: pointer;
+            border: 3px solid #817f7f;
         }
+
+            .back-top:hover {
+                background-color: #817f7f;
+                color:#fff;
+            }
 
         #Cart {
             position: fixed;
-            right: 12%;
+            right: 9%;
             top: 4em;
             font-size: 1em;
             color: black !important;
@@ -48,25 +63,69 @@
             top: 3em;
             z-index: -5;
             font-size: 1em;
-            color: black !important;
-            background-color: #357ebd !important;
+            color: black ;
+            background-color: #357ebd ;
         }
 
         .homecolor {
             color: black;
             font-size: 20px;
+            background-color:white;
+        }
+
+        .homecolor:hover{
+            background-color:lightgray;
         }
 
         #SearchInput {
             position: fixed;
-            right: 12%;
+            right: 9%;
             top: 1em;
         }
 
         #SearchBtn {
             position: fixed;
-            right: 12%;
+            right: 9%;
             top: 1em;
+        }
+
+        #member {
+            position: fixed;
+            left: 3%;
+            top: 2em;
+        }
+
+        /* page-footer */
+
+        .page-footer {
+            margin-top:5em;
+            padding: 50px 0;
+            background-color: rgb(240, 240, 240);
+            color: black;
+            text-align: center;
+        }
+
+        .contact ul {
+            display:flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact li {
+            flex: 1 1 270px;
+            color:gray;
+            line-height:2em;
+        }
+
+        .contact .business-hours {
+            padding: 20px 0;
+            font-size:30px;
+        }
+        .copyright {
+            color: gray;
         }
     </style>
     @Styles.Render("~/Content/css")
@@ -84,7 +143,7 @@
             console.log("ready!");
         });
 
-
+3
         function AddToCart(productId) {
             $.ajax({
                 type: 'POST',
@@ -169,7 +228,7 @@
 
 
 
-<body style="font-family:微軟正黑體; background-color:rgb(250, 250, 250)">
+<body style=" background-color:rgb(250, 250, 250)">
 
 
     <div class="container-fluid navbar navbar-inversewh navbar-fixed-top" style="z-index: 9; background-color:white; border-bottom-color:rgb(210, 210, 210)">
@@ -212,49 +271,119 @@
                     <li>
                         @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
                     </li>
-                    <li>
-                        @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-                    </li>
+                    @*<li>
+                            @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
+                        </li>*@
                     <li>
                         @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
                     </li>
                     <li>
-                        @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                        <div class="btn-group" style="margin-top:0.2em;">
+                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                                <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("長T-shirt", "LongClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("短T-shirt", "ShortClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("外套", "CoatClothesCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                        <div class="btn-group" style="margin-top:0.2em;">
+                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("褲子", "PantsCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                                <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                            </button>
+
+                            <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("長褲", "LongPantsCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("短褲", "ShortPantsCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-block" style="background-color:white;">
+                                    @Html.ActionLink("睡褲", "SleepPantsCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
+                        <div class="btn-group" style="margin-top:0.2em;">
+                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("襪子", "SockCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                                <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                            </button>
+
+                            <div class="dropdown-menu homecolor" aria-labelledby="dropdownMenuLink">
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("長襪", "LongSockCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("短襪", "ShortSockCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("中筒襪", "TubeSockCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn-group" style="margin-top:0.2em;">
+                            <button type="button" class="btn btn-secondary homecolor"> @Html.ActionLink("配件", "AccessoriesCategory", "Home", new { }, new { @class = "homecolor" })</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split homecolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:3.5em;">
+                                <i class="fas fa-caret-down"></i><span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("帽子", "HatCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("手錶", "WatchCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                                <button type="button" class="btn btn btn-secondary btn-block" style="background-color:white;">
+                                    @Html.ActionLink("眼鏡", "GlassesCategory", "Home", new { }, new { @class = "homecolor" })
+                                </button>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
     @* Dropdown link start *@
-    <div class="navbar navbar-expand-lg navbar-light bg-light" style="width:8em;">
+    <div class="navbar navbar-light" style="width:8em;" id="member">
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav" style="padding:0;">
-                    <li class="nav-item dropdown" style="list-style:none;">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            會員管理
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <div class="row">
-                                <div class="col" style="padding:0.3em 1.5em;">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </div>
-                                <div class="col" style="padding:0.3em 1.5em;">
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                </div>
-                                <div class="col" style="padding:0.3em 1.5em;">
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+            <ul class="navbar-nav" style="padding:0;">
+                <li class="nav-item dropdown" style="list-style:none;">
+                    <a class="nav-link dropdown-toggle btn" type="button" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bars" style="font-size:2em; color:black;"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="text-align:center;">
+                        <div class="row">
+                            <div class="col" style="padding:0.3em 1.5em;">
+                                @Html.ActionLink("商品管理", "Index", "Product", new { }, new { @class = "homecolor" })
+                            </div>
+                            <div class="col" style="padding:0.3em 1.5em;">
+                                @Html.ActionLink("會員管理", "Index", "ManageUser", new { }, new { @class = "homecolor" })
+                            </div>
+                            <div class="col" style="padding:0.3em 1.5em;">
+                                @Html.ActionLink("訂單管理", "Index", "ManageOrder", new { }, new { @class = "homecolor" })
                             </div>
                         </div>
-                    </li>
-                </ul>
-            
+                    </div>
+                </li>
+            </ul>
+
         </div>
     </div>
     @* Dropdown link end *@
@@ -342,8 +471,65 @@
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
             <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
         </nav>*@
-    <a href="#" class="back-top"> TOP </a>
-
+    <a href="#" class="back-top"> <i class="fas fa-chevron-up"></i> </a>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="contact">
+                <ul>
+                    <li>
+                        <ul>
+                            <li style="margin-bottom:2em; font-size:16px;"><strong>ABOUT US</strong></li>
+                            <li>最新公告</li>
+                            <li>關於我們</li>
+                            <li>品牌優勢</li>
+                            <li>異業合作</li>
+                            <li>徵才資訊</li>
+                            <li>門市資訊</li>
+                            <li>門市活動</li>
+                            <li>網站地圖</li>
+                            <li>隱私權保護</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li style="margin-bottom:2em; font-size:16px;"><strong>HOW TO ORDER</strong></li>
+                            <li>配送方式</li>
+                            <li>電話訂購</li>
+                            <li>訂單查詢</li>
+                            <li>海外訂購</li>
+                            <li>常見問題</li>
+                            <li>退換貨資訊</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li style="margin-bottom:2em; font-size:16px;"><strong>MEMBERS ONLY</strong></li>
+                            <li>加入會員</li>
+                            <li>本月贈品</li>
+                            <li>會員優惠</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li style="margin-bottom:2em; font-size:16px;"><strong>CONTACT US</strong></li>
+                            <li>週一至週五</li>
+                            <li>09:30~12:30 ● 13:30~18:30</li>
+                            <li> cc@eyescream.com.tw</li>
+                            <li> +886 2 2760-6107</li>                         
+                        </ul>
+                    </li>
+                    <li class="business-hours">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-line"></i>
+                        <i class="fab fa-instagram"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                © 2018 EYESCREAM ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 

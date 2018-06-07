@@ -8,8 +8,14 @@
 }
 
 <style>
+    .thumbnail {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 3%;
+    }
+
     .ProductImg {
         height: 300px;
+        border-radius:20%;
     }
 
     .product-grid {
@@ -56,6 +62,7 @@
     .index-image {
         height: 400px;
         background: url(http://www.jacksonmabokgwanefoundation.co.za/wp-content/uploads/2017/11/slider3.jpg) center center no-repeat;
+        border-radius: 2%;
         background-size: cover;
         position: relative;
     }
@@ -76,7 +83,19 @@
         left: 2em;
     }
 
-    
+    h3 {
+        text-align: center;
+        color: dimgray;
+    }
+
+    p{
+        color:dimgray;
+    }
+
+    .btn-default:hover {
+        background-color: dimgray;
+        color: white;
+    }
 </style>
 
 @*<div class="jumbotron">
@@ -92,9 +111,9 @@
 <div class="container" style="width:100%;">
 
 
-    <div class="row">
+    @*<div class="row">
         <div class="col">
-            <ul class="nav navbar-nav" style="width:600px;">
+            @*<ul class="nav navbar-nav" style="width:600px;">
                 <li>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary homecolor" style="font-size:25px; margin-left:1em;"> @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })</button>
@@ -177,7 +196,7 @@
             </ul>
         </div>
     </div>
-    <hr>
+    <hr>*@
     <div class="row">
         <div class="index-image">
             <h2>
@@ -194,27 +213,28 @@
     <div class="row" style="margin-top:1em">
         @foreach (var product in this.Model)
         {
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
-                    <div class="caption">
-                        <h3>@product.Name</h3>
-                        <p>@product.Description</p>
-                        <p>售價 : @product.Price</p>
-                        <p>庫存 : @product.Quantity</p>
-                        <p>賣家 : @product.UserName</p>
-                        <p>
-                            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
-                               class="btn btn-primary" role="button">
-                                加入購物車
-                            </a>
-                            <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-default" role="button">
-                                詳細資訊
-                            </a>
-                        </p>
-                    </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
+                <div class="caption">
+                    <h3>@product.Name</h3>
+                    <p>@product.Description</p>
+                    <p>售價 : @product.Price</p>
+                    <p>庫存 : @product.Quantity</p>
+                    <p>賣家 : @product.UserName</p>
+                    <p>
+                        <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
+                           class="btn btn-default" role="button">
+                            加入購物車
+                        </a>
+                        <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-default" role="button">
+                            詳細資訊
+                        </a>
+                    </p>
                 </div>
             </div>
+            <br />
+        </div>
         }
     </div>
 </div>
