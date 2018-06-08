@@ -228,8 +228,7 @@
 
 
 
-<body style=" background-color:rgb(250, 250, 250)">
-
+<body style=" background:url(../../image/Background.gif) ;" >
 
     <div class="container-fluid navbar navbar-inversewh navbar-fixed-top" style="z-index: 9; background-color:white; border-bottom-color:rgb(210, 210, 210)">
         <div class="row mb-5">
@@ -271,12 +270,12 @@
                     <li>
                         @Html.ActionLink("首頁", "Index", "Home", new { }, new { @class = "homecolor" })
                     </li>
-                    @*<li>
-            @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
-        </li>*@
                     <li>
-                        @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                        @Html.ActionLink("關於", "About", "Home", new { }, new { @class = "homecolor" })
                     </li>
+                    @*<li>
+                        @Html.ActionLink("連絡方式", "Contact", "Home", new { }, new { @class = "homecolor" })
+                    </li>*@
                     <li>
                         @Html.ActionLink("衣服", "ClothesCategory", "Home", new { }, new { @class = "homecolor" })
                     </li>
