@@ -61,7 +61,7 @@
 
     .index-image {
         height: 400px;
-        background: url(http://www.jacksonmabokgwanefoundation.co.za/wp-content/uploads/2017/11/slider3.jpg) center center no-repeat;
+        background: url(http://image.obdesign.com.tw/_Blog/blogger/01265252/8f2f00b9-51da-4cbf-b712-61744274af1f/CoverPic.jpg) center center no-repeat;
         border-radius: 2%;
         background-size: cover;
         position: relative;
@@ -214,10 +214,11 @@
         @foreach (var product in this.Model)
         {
         <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
+            <div class="thumbnail" >
                 <img class="ProductImg" src="@product.DefaultImageURL" alt="商品圖片">
                 <div class="caption">
                     <h3>@product.Name</h3>
+                    <hr />
                     <p>@product.Description</p>
                     <p>售價 : @product.Price</p>
                     <p>庫存 : @product.Quantity</p>
