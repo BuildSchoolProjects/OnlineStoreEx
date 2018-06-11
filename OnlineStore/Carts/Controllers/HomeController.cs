@@ -177,6 +177,15 @@ namespace Carts.Controllers
             }
         }
 
+        public ActionResult SearchProduct(string search)
+        {
+            search = search.Trim();
+            using (Models.CartsEntities db = new Models.CartsEntities())
+            {
+                var result = (from s in db.Products where s.Name.Contains(search) select s).ToList();
+                return View(result);
+            }
+        }
 
         public ActionResult Details(int id)
         {

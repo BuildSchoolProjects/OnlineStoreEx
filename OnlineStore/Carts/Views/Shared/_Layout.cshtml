@@ -256,10 +256,13 @@
                         </span>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="SearchInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="SearchBtn">查詢</button>
-                        </div>
+                        @using (Html.BeginForm("SearchProduct", "Home"))
+                        {
+                            <input name="search" type="text" class="form-control" id="SearchInput" placeholder="請輸入商品名稱:" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" id="SearchBtn">查詢</button>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
